@@ -1,9 +1,11 @@
 import { getFeaturedTestimonials } from "@/lib/data/content";
 import { TestimonialCard } from "./testimonial-card";
 import { Quote } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 export async function Testimonials() {
   const testimonials = await getFeaturedTestimonials();
+  const t = await getTranslations("testimonials");
 
   if (testimonials.length === 0) {
     return null; // Don't render section if no testimonials
@@ -18,10 +20,10 @@ export async function Testimonials() {
             <Quote className="h-6 w-6 text-accent" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            What Our <span className="text-accent">Clients</span> Say
+            {t("title")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Trusted by industry leaders across 17+ sectors worldwide
+            {t("subtitle")}
           </p>
         </div>
 

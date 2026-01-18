@@ -4,12 +4,15 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { useTranslations } from "next-intl";
 
 interface CareersHeroProps {
   jobCount: number;
 }
 
 export function CareersHero({ jobCount }: CareersHeroProps) {
+  const t = useTranslations("careers");
+
   const scrollToPositions = () => {
     document.getElementById("open-positions")?.scrollIntoView({
       behavior: "smooth",
@@ -33,7 +36,7 @@ export function CareersHero({ jobCount }: CareersHeroProps) {
               transition={{ duration: 0.3, delay: 0.2 }}
               className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6"
             >
-              {jobCount} Open Position{jobCount !== 1 ? "s" : ""}
+              {jobCount} {jobCount !== 1 ? t("openPositions") : t("openPosition")}
             </motion.span>
           )}
 
@@ -44,8 +47,7 @@ export function CareersHero({ jobCount }: CareersHeroProps) {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Build the Future{" "}
-            <span className="text-accent">with Us</span>
+            {t("heroTitle")}
           </motion.h1>
 
           {/* Subheadline */}
@@ -55,8 +57,7 @@ export function CareersHero({ jobCount }: CareersHeroProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            Join a team of innovators creating IoT, automation, and surveillance
-            solutions that transform industries worldwide.
+            {t("heroSubtitle")}
           </motion.p>
 
           {/* CTA Button */}
@@ -70,7 +71,7 @@ export function CareersHero({ jobCount }: CareersHeroProps) {
               onClick={scrollToPositions}
               className="gap-2"
             >
-              View Open Positions
+              {t("viewPositions")}
               <ChevronDown className="h-4 w-4" />
             </Button>
           </motion.div>

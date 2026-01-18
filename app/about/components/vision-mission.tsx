@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Eye, Target } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { VISION, MISSION } from "@/lib/constants";
 
 export function VisionMission() {
+  const t = useTranslations("about");
+
   return (
     <section className="py-10 sm:py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -20,9 +23,9 @@ export function VisionMission() {
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 sm:mb-5 md:mb-6">
               <Eye className="h-6 w-6 sm:h-7 sm:w-7 text-accent" />
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Our Vision</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{t("vision.title")}</h2>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              {VISION}
+              {t("vision.content")}
             </p>
           </motion.div>
 
@@ -37,8 +40,8 @@ export function VisionMission() {
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/10 flex items-center justify-center mb-4 sm:mb-5 md:mb-6">
               <Target className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Our Mission</h2>
-            <p className="text-white/90 text-base sm:text-lg leading-relaxed">{MISSION}</p>
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{t("mission.title")}</h2>
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed">{t("mission.content")}</p>
           </motion.div>
         </div>
       </div>

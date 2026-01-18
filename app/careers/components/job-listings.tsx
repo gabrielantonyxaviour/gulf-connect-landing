@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import type { Job } from "@/lib/types/database";
 import { JobFilters } from "./job-filters";
 import { JobCard } from "./job-card";
@@ -15,6 +16,7 @@ interface JobListingsProps {
 export function JobListings({ initialJobs }: JobListingsProps) {
   const [selectedDepartment, setSelectedDepartment] = useState<string>("all");
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+  const t = useTranslations("openPositions");
 
   const filteredJobs = initialJobs.filter((job) => {
     if (selectedDepartment !== "all" && job.department !== selectedDepartment)
@@ -36,10 +38,10 @@ export function JobListings({ initialJobs }: JobListingsProps) {
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              Open Positions
+              {t("title")}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Find your next opportunity
+              {t("subtitle")}
             </p>
           </motion.div>
 
@@ -59,10 +61,10 @@ export function JobListings({ initialJobs }: JobListingsProps) {
           className="text-center mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Open Positions
+            {t("title")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Find your next opportunity
+            {t("subtitle")}
           </p>
         </motion.div>
 

@@ -71,11 +71,11 @@ function EvervaultPattern({
   return (
     <div className="pointer-events-none absolute inset-0">
       {/* Base gradient always visible but subtle */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-950/20 via-black to-red-950/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-green-100/40 via-white to-green-50/30" />
 
       {/* Hover gradient that follows mouse */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-red-600/40 via-red-800/30 to-red-950/40 opacity-0 group-hover/evervault:opacity-100 backdrop-blur-sm transition-opacity duration-300"
+        className="absolute inset-0 bg-gradient-to-r from-green-500/30 via-green-600/20 to-green-700/30 opacity-0 group-hover/evervault:opacity-100 backdrop-blur-sm transition-opacity duration-300"
         style={style}
       />
 
@@ -84,7 +84,7 @@ function EvervaultPattern({
         className="absolute inset-0 opacity-0 mix-blend-overlay group-hover/evervault:opacity-100 transition-opacity duration-300"
         style={style}
       >
-        <p className="absolute inset-0 text-red-500/60 font-mono text-[10px] leading-tight whitespace-pre-wrap break-all overflow-hidden select-none">
+        <p className="absolute inset-0 text-green-600/60 font-mono text-[10px] leading-tight whitespace-pre-wrap break-all overflow-hidden select-none">
           {randomString}
         </p>
       </motion.div>

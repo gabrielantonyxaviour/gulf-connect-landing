@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function GalleryHero() {
+  const t = useTranslations("gallery");
+
   return (
     <section className="relative min-h-[50vh] flex items-center pt-24 sm:pt-28 md:pt-32 pb-10 sm:pb-12 md:pb-16 bg-gradient-to-b from-accent/5 via-accent/10 to-background overflow-hidden">
       {/* Background decoration */}
@@ -25,7 +28,7 @@ export function GalleryHero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Our <span className="text-accent">Gallery</span>
+            {t("heroTitle")}
           </motion.h1>
 
           {/* Subheadline */}
@@ -35,8 +38,7 @@ export function GalleryHero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Explore moments from our company events, celebrations, and team
-            activities that make Rax Tech a great place to work.
+            {t("heroSubtitle")}
           </motion.p>
         </motion.div>
       </div>

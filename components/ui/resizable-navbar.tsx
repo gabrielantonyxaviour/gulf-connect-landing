@@ -80,7 +80,7 @@ export function NavBody({ children, className }: NavBodyProps) {
         damping: 30,
       }}
       className={cn(
-        "hidden lg:flex items-center justify-between mx-auto px-4 xl:px-6 py-2 xl:py-2.5 h-12 xl:h-14 rounded-full bg-black border border-neutral-800 shadow-lg",
+        "hidden lg:flex items-center justify-between mx-auto px-4 xl:px-6 py-2 xl:py-2.5 h-12 xl:h-14 rounded-full bg-white border border-green-200 shadow-lg",
         className
       )}
     >
@@ -103,7 +103,7 @@ export function NavItems({ items, className, onItemClick }: NavItemsProps) {
           key={`nav-item-${idx}`}
           href={item.link}
           onClick={onItemClick}
-          className="relative text-xs lg:text-sm font-medium text-neutral-300 hover:text-white transition-colors whitespace-nowrap"
+          className="relative text-xs lg:text-sm font-medium text-neutral-700 hover:text-green-600 transition-colors whitespace-nowrap"
         >
           <span>{item.name}</span>
         </Link>
@@ -120,8 +120,8 @@ export function NavbarLogo({ className }: NavbarLogoProps) {
   return (
     <Link href="/" className={cn("flex items-center", className)}>
       <Image
-        src="/images/logo.png"
-        alt="Rax Tech"
+        src="/offices/gulf-connect-logo.png"
+        alt="Gulf Connect"
         width={40}
         height={40}
         className="h-8 lg:h-9 xl:h-10 w-auto"
@@ -151,7 +151,7 @@ export function NavbarButton({
     primary:
       "bg-white text-black hover:bg-neutral-200 shadow-sm",
     secondary:
-      "bg-transparent border border-neutral-600 text-neutral-300 hover:bg-neutral-800 hover:text-white",
+      "bg-transparent border border-green-300 text-neutral-700 hover:bg-green-50 hover:text-green-700",
   };
 
   if (href) {
@@ -210,7 +210,7 @@ export function MobileNavHeader({ children, className }: MobileNavHeaderProps) {
         damping: 30,
       }}
       className={cn(
-        "flex items-center justify-between mx-auto px-3 sm:px-4 py-2 h-11 sm:h-12 rounded-full bg-black border border-neutral-800 shadow-lg",
+        "flex items-center justify-between mx-auto px-3 sm:px-4 py-2 h-11 sm:h-12 rounded-full bg-white border border-green-200 shadow-lg",
         className
       )}
     >
@@ -237,15 +237,15 @@ export function MobileNavToggle({ isOpen, onClick, className }: MobileNavToggleP
     >
       <motion.span
         animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-        className="w-5 h-0.5 bg-white origin-center"
+        className="w-5 h-0.5 bg-green-600 origin-center"
       />
       <motion.span
         animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-        className="w-5 h-0.5 bg-white"
+        className="w-5 h-0.5 bg-green-600"
       />
       <motion.span
         animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-        className="w-5 h-0.5 bg-white origin-center"
+        className="w-5 h-0.5 bg-green-600 origin-center"
       />
     </button>
   );
@@ -274,7 +274,7 @@ export function MobileNavMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-white/80 backdrop-blur-sm z-40"
           />
           {/* Menu */}
           <motion.div
@@ -283,7 +283,7 @@ export function MobileNavMenu({
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className={cn(
-              "fixed left-4 right-4 top-20 bg-black border border-neutral-800 rounded-2xl z-50 p-6",
+              "fixed left-4 right-4 top-20 bg-white border border-green-200 rounded-2xl z-50 p-6 shadow-xl",
               className
             )}
           >

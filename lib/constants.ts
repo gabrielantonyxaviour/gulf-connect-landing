@@ -84,7 +84,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Smart connected devices for remote monitoring, real-time data collection, and industrial automation.",
     icon: "Cpu",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/iot.png",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/iot.png",
     offerings: [
       "Remote monitoring solutions",
       "Smart sensors & connectivity",
@@ -101,7 +101,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Comprehensive security automation and surveillance solutions with alarm panels, video analytics, and access control.",
     icon: "Shield",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/e-surveillance.png",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/e-surveillance.png",
     offerings: [
       "Alarm automation panels",
       "Video analytics",
@@ -118,7 +118,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Enterprise software platforms for monitoring, management, and IoT applications.",
     icon: "Monitor",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/software.png",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/software.png",
     offerings: [
       "Central monitoring software",
       "IoT platform & mobile apps",
@@ -135,7 +135,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Deep Sea Master boat management systems for maritime navigation and control.",
     icon: "Anchor",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/marine-technology.png",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/marine-technology.png",
     offerings: [
       "Bridge control systems",
       "Navigation management",
@@ -152,7 +152,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Comprehensive HSE solutions for workplace safety, environmental monitoring, and compliance.",
     icon: "HardHat",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/hse.png",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/hse.png",
     offerings: [
       "Assembly area monitoring",
       "LTI tracking systems",
@@ -169,7 +169,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Industrial automation panels and control systems for manufacturing and process industries.",
     icon: "Cog",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/automation.png",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/automation.png",
     offerings: [
       "PLC Panels",
       "VFD Panels",
@@ -815,7 +815,7 @@ export const OFFICES = [
     phone: "+968 9766 7053",
     coordinates: { lat: 23.588, lng: 58.3829 }, // Muscat
     timezone: "Asia/Muscat",
-    color: "#1e40af", // Blue - matches their logo
+    color: "#16a34a", // Green - matches new brand theme
   },
   {
     id: "europe",

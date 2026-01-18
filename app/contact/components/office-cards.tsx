@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Mail, MapPin, Phone, Clock, Building2 } from "lucide-react";
 import { SORTED_OFFICES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -26,6 +27,7 @@ function formatTime(timezone: string): string {
 
 export function OfficeCards({ selectedOfficeId, onOfficeSelect }: OfficeCardsProps) {
   const [currentTimes, setCurrentTimes] = useState<Record<string, string>>({});
+  const t = useTranslations("contact.offices");
 
   useEffect(() => {
     // Update times immediately
@@ -62,8 +64,8 @@ export function OfficeCards({ selectedOfficeId, onOfficeSelect }: OfficeCardsPro
           >
             {/* HQ badge */}
             {isHeadquarters && (
-              <div className="absolute -top-2.5 left-3 sm:-top-3 sm:left-4 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-accent text-accent-foreground text-xs font-semibold rounded-full">
-                HQ
+              <div className="absolute -top-2.5 ltr:left-3 rtl:right-3 sm:-top-3 ltr:sm:left-4 rtl:sm:right-4 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-accent text-accent-foreground text-xs font-semibold rounded-full">
+                {t("headquarters")}
               </div>
             )}
 
@@ -88,7 +90,7 @@ export function OfficeCards({ selectedOfficeId, onOfficeSelect }: OfficeCardsPro
 
             {/* Company Name */}
             <h3 className="text-base sm:text-lg font-bold mb-1 group-hover:text-accent transition-colors">
-              {office.name}
+              {t(`names.${office.id}`)}
             </h3>
 
             {/* Location with local time */}

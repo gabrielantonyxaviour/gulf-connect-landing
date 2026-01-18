@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Briefcase, DollarSign, X, CheckCircle, ArrowLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { Job } from "@/lib/types/database";
 import { ApplicationForm } from "./application-form";
 
@@ -43,6 +44,8 @@ export function JobDetailsModal({
   onClose,
 }: JobDetailsModalProps) {
   const [showApplication, setShowApplication] = useState(false);
+  const t = useTranslations("jobDetails");
+  const tCareers = useTranslations("careers");
 
   if (!job) return null;
 
@@ -82,7 +85,7 @@ export function JobDetailsModal({
                 </button>
                 <div className="flex-1">
                   <p className="text-sm text-muted-foreground mb-1">
-                    Applying for
+                    {t("applyingFor")}
                   </p>
                   <DialogTitle className="text-xl font-bold">
                     {job.title}
@@ -157,7 +160,7 @@ export function JobDetailsModal({
             <div className="flex-1 overflow-y-auto p-6 space-y-6">
               {/* Description */}
               <div>
-                <h4 className="text-lg font-semibold mb-3">About the Role</h4>
+                <h4 className="text-lg font-semibold mb-3">{t("aboutTheRole")}</h4>
                 <p className="text-muted-foreground leading-relaxed">
                   {job.description}
                 </p>
@@ -166,7 +169,7 @@ export function JobDetailsModal({
               {/* Requirements */}
               {job.requirements && job.requirements.length > 0 && (
                 <div>
-                  <h4 className="text-lg font-semibold mb-3">Requirements</h4>
+                  <h4 className="text-lg font-semibold mb-3">{t("requirements")}</h4>
                   <ul className="space-y-2">
                     {job.requirements.map((req, index) => (
                       <li key={index} className="flex items-start gap-3">
@@ -181,7 +184,7 @@ export function JobDetailsModal({
               {/* Responsibilities */}
               {job.responsibilities && job.responsibilities.length > 0 && (
                 <div>
-                  <h4 className="text-lg font-semibold mb-3">Responsibilities</h4>
+                  <h4 className="text-lg font-semibold mb-3">{t("responsibilities")}</h4>
                   <ul className="space-y-2">
                     {job.responsibilities.map((resp, index) => (
                       <li key={index} className="flex items-start gap-3">
@@ -196,7 +199,7 @@ export function JobDetailsModal({
               {/* Benefits */}
               {job.benefits && job.benefits.length > 0 && (
                 <div>
-                  <h4 className="text-lg font-semibold mb-3">Benefits</h4>
+                  <h4 className="text-lg font-semibold mb-3">{t("benefits")}</h4>
                   <ul className="space-y-2">
                     {job.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-3">
@@ -212,7 +215,7 @@ export function JobDetailsModal({
             {/* Sticky Footer */}
             <div className="sticky bottom-0 z-10 bg-background border-t p-6">
               <Button size="lg" className="w-full" onClick={handleApply}>
-                Apply Now
+                {tCareers("applyNow")}
               </Button>
             </div>
           </>

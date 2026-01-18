@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { MapPin, Clock, Briefcase } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { Job } from "@/lib/types/database";
 
 interface JobCardProps {
@@ -23,6 +24,8 @@ const departmentImages: Record<string, string> = {
 const defaultImage = "/services/staffing.png";
 
 export function JobCard({ job, onClick }: JobCardProps) {
+  const t = useTranslations("jobDetails");
+
   // Use embedded design image for embedded roles
   const isEmbeddedRole = job.title.toLowerCase().includes("embedded");
   const coverImage = isEmbeddedRole
@@ -79,7 +82,7 @@ export function JobCard({ job, onClick }: JobCardProps) {
         {/* View details link */}
         <div className="mt-4 pt-4 border-t">
           <span className="text-sm font-medium text-accent group-hover:underline">
-            View Details &rarr;
+            {t("viewDetails")} &rarr;
           </span>
         </div>
       </div>

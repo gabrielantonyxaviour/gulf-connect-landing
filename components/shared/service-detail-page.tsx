@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { trackServiceView, trackCTA } from "@/lib/analytics";
 import {
   CircuitBoard,
@@ -37,6 +38,16 @@ const iconMap: Record<string, LucideIcon> = {
   Users,
   Brain,
   Blocks,
+};
+
+// Map service IDs to translation keys
+const serviceTranslationKeys: Record<string, string> = {
+  "embedded-design": "embeddedDesign",
+  "software-development": "softwareDev",
+  "ai": "ai",
+  "blockchain": "blockchain",
+  "oem-odm": "oemOdm",
+  "staffing": "staffing",
 };
 
 // Service-specific accent colors
@@ -145,6 +156,17 @@ function getCapabilityDescription(capability: string): string {
 
 // Mobile card for other services
 function MobileServiceCard({ service, index }: { service: typeof SERVICES[number]; index: number }) {
+  const t = useTranslations("servicePage");
+  const tServices = useTranslations("servicesPage");
+
+  // Get translation key for this service
+  const translationKey = serviceTranslationKeys[service.id] || service.id;
+  const serviceTitle = tServices(`${translationKey}.title`);
+  const serviceDescription = tServices(`${translationKey}.description`);
+  const translatedCapabilities = service.capabilities.map((_, i) =>
+    tServices(`${translationKey}.capabilities.${i + 1}`)
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -167,20 +189,20 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
       {/* Content */}
       <div className="p-4 sm:p-5 -mt-8 relative z-10 flex flex-col flex-1">
         <h3 className="font-bold text-lg sm:text-xl text-foreground mb-2">
-          {service.title}
+          {serviceTitle}
         </h3>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-          {service.description}
+          {serviceDescription}
         </p>
 
         {/* Capabilities - show first 3 */}
         <ul className="space-y-1.5 mb-4 flex-1">
-          {service.capabilities.slice(0, 3).map((capability) => (
+          {translatedCapabilities.slice(0, 3).map((capability, i) => (
             <li
-              key={capability}
+              key={i}
               className="text-xs sm:text-sm text-muted-foreground flex items-start"
             >
-              <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 mt-1.5 flex-shrink-0" />
+              <span className="w-1.5 h-1.5 bg-accent rounded-full ltr:mr-2 rtl:ml-2 mt-1.5 flex-shrink-0" />
               {capability}
             </li>
           ))}
@@ -192,8 +214,8 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
           className="bg-accent hover:bg-accent/90 text-white w-full sm:w-auto mt-auto"
         >
           <Link href={service.route}>
-            Learn More
-            <ArrowRight className="ml-2 h-4 w-4" />
+            {t("learnMore")}
+            <ArrowRight className="ltr:ml-2 rtl:mr-2 h-4 w-4 rtl:rotate-180" />
           </Link>
         </Button>
       </div>
@@ -204,6 +226,8 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
 // Desktop expandable cards for other services
 function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[number][] }) {
   const [activeId, setActiveId] = React.useState<string | null>(null);
+  const t = useTranslations("servicePage");
+  const tServices = useTranslations("servicesPage");
 
   return (
     <div onMouseLeave={() => setActiveId(null)}>
@@ -211,6 +235,14 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
         {services.map((service) => {
           const isActive = activeId === service.id;
           const hasActive = activeId !== null;
+
+          // Get translation key for this service
+          const translationKey = serviceTranslationKeys[service.id] || service.id;
+          const serviceTitle = tServices(`${translationKey}.title`);
+          const serviceDescription = tServices(`${translationKey}.description`);
+          const translatedCapabilities = service.capabilities.map((_, i) =>
+            tServices(`${translationKey}.capabilities.${i + 1}`)
+          );
 
           return (
             <motion.div
@@ -234,7 +266,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                   <Image
                     fill
                     src={service.image}
-                    alt={service.title}
+                    alt={serviceTitle}
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/95 via-card/30 to-transparent" />
@@ -247,7 +279,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                       className={`font-semibold text-foreground ${hasActive ? "text-[10px] lg:text-xs" : "text-sm lg:text-base text-center"}`}
                       style={hasActive ? { writingMode: "vertical-rl", textOrientation: "mixed" } : {}}
                     >
-                      {service.title}
+                      {serviceTitle}
                     </h3>
                   </motion.div>
                 </motion.div>
@@ -263,7 +295,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                     <Image
                       fill
                       src={service.image}
-                      alt={service.title}
+                      alt={serviceTitle}
                       className="object-cover"
                     />
                   </div>
@@ -276,11 +308,11 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                     >
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-3 lg:mb-4">
                         <div className="flex-1 lg:pr-4 mb-3 lg:mb-0">
-                          <h3 className="font-bold text-lg lg:text-xl xl:text-2xl text-foreground group-hover/expanded:text-white transition-colors">
-                            {service.title}
+                          <h3 className="font-bold text-lg lg:text-xl xl:text-2xl text-foreground group-hover/expanded:text-neutral-900 transition-colors">
+                            {serviceTitle}
                           </h3>
-                          <p className="text-muted-foreground group-hover/expanded:text-neutral-300 mt-1 lg:mt-2 text-xs lg:text-sm transition-colors">
-                            {service.description}
+                          <p className="text-muted-foreground group-hover/expanded:text-neutral-600 mt-1 lg:mt-2 text-xs lg:text-sm transition-colors">
+                            {serviceDescription}
                           </p>
                         </div>
                         <Button
@@ -289,23 +321,23 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                           className="bg-accent hover:bg-accent/90 text-white flex-shrink-0 w-full lg:w-auto"
                         >
                           <Link href={service.route}>
-                            Learn More
-                            <ArrowRight className="ml-2 h-4 w-4" />
+                            {t("learnMore")}
+                            <ArrowRight className="ltr:ml-2 rtl:mr-2 h-4 w-4 rtl:rotate-180" />
                           </Link>
                         </Button>
                       </div>
 
                       <div className="pt-3 lg:pt-4 border-t border-border group-hover/expanded:border-neutral-700 transition-colors">
-                        <h4 className="font-semibold text-foreground group-hover/expanded:text-white mb-2 lg:mb-3 text-xs lg:text-sm transition-colors">
-                          Capabilities
+                        <h4 className="font-semibold text-foreground group-hover/expanded:text-neutral-900 mb-2 lg:mb-3 text-xs lg:text-sm transition-colors">
+                          {t("capabilities")}
                         </h4>
                         <ul className="grid grid-cols-1 xl:grid-cols-2 gap-1.5 lg:gap-2">
-                          {service.capabilities.map((capability) => (
+                          {translatedCapabilities.map((capability, i) => (
                             <li
-                              key={capability}
-                              className="text-xs lg:text-sm text-muted-foreground group-hover/expanded:text-neutral-300 flex items-start transition-colors"
+                              key={i}
+                              className="text-xs lg:text-sm text-muted-foreground group-hover/expanded:text-neutral-600 flex items-start transition-colors"
                             >
-                              <span className="w-1 lg:w-1.5 h-1 lg:h-1.5 bg-accent group-hover/expanded:bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0 transition-colors" />
+                              <span className="w-1 lg:w-1.5 h-1 lg:h-1.5 bg-accent group-hover/expanded:bg-green-400 rounded-full ltr:mr-2 rtl:ml-2 mt-1.5 flex-shrink-0 transition-colors" />
                               {capability}
                             </li>
                           ))}
@@ -325,6 +357,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
 
 // Other Services Section Component
 function OtherServicesSection({ services }: { services: (typeof SERVICES)[number][] }) {
+  const t = useTranslations("servicePage");
   return (
     <section className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
       {/* Subtle gradient */}
@@ -339,10 +372,10 @@ function OtherServicesSection({ services }: { services: (typeof SERVICES)[number
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Explore Other <span className="text-accent">Services</span>
+            {t("exploreOther")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover our full range of technology services
+            {t("exploreOtherSubtitle")}
           </p>
         </motion.div>
 
@@ -376,6 +409,8 @@ interface ServiceDetailPageProps {
 }
 
 export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
+  const t = useTranslations("servicePage");
+  const tServices = useTranslations("servicesPage");
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -386,6 +421,34 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
   const service = SERVICES.find((s) => s.id === serviceId);
+
+  // Translated process steps
+  const translatedProcessSteps = [
+    {
+      step: "01",
+      title: t("process.discovery.title"),
+      description: t("process.discovery.description"),
+      Icon: Search,
+    },
+    {
+      step: "02",
+      title: t("process.strategy.title"),
+      description: t("process.strategy.description"),
+      Icon: Map,
+    },
+    {
+      step: "03",
+      title: t("process.execution.title"),
+      description: t("process.execution.description"),
+      Icon: Zap,
+    },
+    {
+      step: "04",
+      title: t("process.delivery.title"),
+      description: t("process.delivery.description"),
+      Icon: Rocket,
+    },
+  ];
 
   // Track service view
   useEffect(() => {
@@ -401,6 +464,18 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
   const Icon = iconMap[service.icon];
   const otherServices = SERVICES.filter((s) => s.id !== serviceId);
   const colors = serviceColors[serviceId] || serviceColors["embedded-design"];
+
+  // Get translation key for this service
+  const translationKey = serviceTranslationKeys[serviceId] || serviceId;
+
+  // Get translated service content
+  const serviceTitle = tServices(`${translationKey}.title`);
+  const serviceDescription = tServices(`${translationKey}.description`);
+
+  // Get translated capabilities (array from numbered keys)
+  const translatedCapabilities = service.capabilities.map((_, index) => {
+    return tServices(`${translationKey}.capabilities.${index + 1}`);
+  });
 
   return (
     <>
@@ -469,7 +544,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               transition={{ duration: 0.5 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 tracking-tight"
             >
-              {service.title}
+              {serviceTitle}
             </motion.h1>
 
             {/* Description */}
@@ -479,7 +554,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              {service.description}
+              {serviceDescription}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -498,8 +573,8 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                   href="/contact"
                   onClick={() => trackCTA("Start Your Project", `services/${serviceId}`)}
                 >
-                  Start Your Project
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  {t("startProject")}
+                  <ArrowRight className="ltr:ml-2 rtl:mr-2 h-5 w-5 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
                 </Link>
               </Button>
               <Button
@@ -512,7 +587,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                   href="/about"
                   onClick={() => trackCTA("Learn About Us", `services/${serviceId}`)}
                 >
-                  Learn About Us
+                  {t("learnAboutUs")}
                 </Link>
               </Button>
             </motion.div>
@@ -531,7 +606,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-xs text-muted-foreground">Explore capabilities</span>
+            <span className="text-xs text-muted-foreground">{t("exploreCapabilities")}</span>
             <ChevronDown className="h-6 w-6 text-muted-foreground" />
           </motion.div>
         </motion.div>
@@ -552,23 +627,22 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                What We <span className="text-accent">Offer</span>
+                {t("whatWeOffer")}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Comprehensive capabilities tailored to deliver exceptional results
+                {t("whatWeOfferSubtitle")}
               </p>
             </motion.div>
 
             {/* Capabilities Bento Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-              {service.capabilities.map((capability, index) => {
+              {translatedCapabilities.map((capability, index) => {
                 // Create varied sizes for bento effect
                 const isLarge = index === 0 || index === 3;
-                const description = getCapabilityDescription(capability);
 
                 return (
                   <motion.div
-                    key={capability}
+                    key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -592,26 +666,18 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                         isLarge ? "w-16 h-16" : "w-14 h-14"
                       )}>
                         <CheckCircle2 className={cn(
-                          "text-accent group-hover:text-white transition-colors",
+                          "text-accent group-hover:text-green-700 transition-colors",
                           isLarge ? "w-8 h-8" : "w-7 h-7"
                         )} />
                       </div>
 
                       {/* Title */}
                       <h3 className={cn(
-                        "font-bold group-hover:text-white transition-colors mb-3",
+                        "font-bold group-hover:text-neutral-900 transition-colors mb-3",
                         isLarge ? "text-xl md:text-2xl" : "text-lg md:text-xl"
                       )}>
                         {capability}
                       </h3>
-
-                      {/* Description */}
-                      <p className={cn(
-                        "text-muted-foreground group-hover:text-neutral-300 transition-colors leading-relaxed",
-                        isLarge ? "text-base" : "text-sm"
-                      )}>
-                        {description}
-                      </p>
                     </EvervaultBackground>
                   </motion.div>
                 );
@@ -640,10 +706,10 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Our <span className="text-accent">Process</span>
+                {t("ourProcess")}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                A proven methodology that delivers results consistently
+                {t("ourProcessSubtitle")}
               </p>
             </motion.div>
 
@@ -661,7 +727,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               </div>
 
               <div className="grid md:grid-cols-4 gap-6 md:gap-8">
-                {processSteps.map((item, index) => (
+                {translatedProcessSteps.map((item, index) => (
                   <motion.div
                     key={item.step}
                     initial={{ opacity: 0, y: 30 }}
@@ -688,24 +754,24 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                         </div>
 
                         {/* Step Number Badge */}
-                        <div className="text-sm font-mono text-accent group-hover:text-white bg-accent/10 group-hover:bg-white/20 px-3 py-1 rounded-full inline-block mb-3 transition-colors">
-                          Step {item.step}
+                        <div className="text-sm font-mono text-accent group-hover:text-green-700 bg-accent/10 group-hover:bg-green-100 px-3 py-1 rounded-full inline-block mb-3 transition-colors">
+                          {t("step")} {item.step}
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">
+                        <h3 className="text-xl font-bold mb-2 group-hover:text-neutral-900 transition-colors">
                           {item.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-sm text-muted-foreground group-hover:text-neutral-300 leading-relaxed transition-colors">
+                        <p className="text-sm text-muted-foreground group-hover:text-neutral-600 leading-relaxed transition-colors">
                           {item.description}
                         </p>
                       </EvervaultBackground>
                     </div>
 
                     {/* Arrow - Mobile */}
-                    {index < processSteps.length - 1 && (
+                    {index < translatedProcessSteps.length - 1 && (
                       <div className="md:hidden flex justify-center py-4">
                         <ChevronDown className="w-6 h-6 text-accent/50" />
                       </div>
@@ -747,11 +813,10 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                   transition={{ delay: 0.2 }}
                 >
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-                    Ready to Start Your Project?
+                    {t("readyToStart")}
                   </h2>
                   <p className="text-white/80 mb-8 max-w-xl mx-auto text-lg">
-                    Let&apos;s discuss how our {service.title.toLowerCase()} expertise can
-                    transform your ideas into reality.
+                    {t("ctaDescription", { service: serviceTitle.toLowerCase() })}
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -765,8 +830,8 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                         href="/contact"
                         onClick={() => trackCTA("Contact Our Team", `services/${serviceId}`, { section: "cta" })}
                       >
-                        Contact Our Team
-                        <ArrowRight className="ml-2 h-5 w-5" />
+                        {t("contactTeam")}
+                        <ArrowRight className="ltr:ml-2 rtl:mr-2 h-5 w-5 rtl:rotate-180" />
                       </Link>
                     </Button>
                     <Button
@@ -779,7 +844,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                         href="/about"
                         onClick={() => trackCTA("Learn About Us", `services/${serviceId}`, { section: "cta" })}
                       >
-                        Learn About Us
+                        {t("learnAboutUs")}
                       </Link>
                     </Button>
                   </div>

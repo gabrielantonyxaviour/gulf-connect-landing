@@ -65,13 +65,13 @@ export function Globe({ selectedOfficeId }: GlobeProps) {
       height: width * 2,
       phi: phiRef.current,
       theta: 0.25,
-      dark: 1,
+      dark: 0,
       diffuse: 1.2,
       mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: [0.3, 0.3, 0.3],
-      markerColor: [1, 0, 0], // Pure red
-      glowColor: [0.15, 0.15, 0.15],
+      mapBrightness: 2,
+      baseColor: [1, 1, 1],
+      markerColor: [0.2, 0.7, 0.3], // Green markers
+      glowColor: [0.9, 0.9, 0.9],
       markers,
       onRender: (state) => {
         // Only auto-rotate when not dragging

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import {
   SectionWrapper,
   SectionHeader,
@@ -11,6 +12,38 @@ import {
 import { EvervaultBackground } from "@/components/ui/evervault-background";
 import { BUSINESS_DOMAINS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+// Map domain IDs to translation keys
+const domainTranslationKeys: Record<string, string> = {
+  "iot": "iot",
+  "e-surveillance": "eSurveillance",
+  "software": "software",
+  "marine-technology": "marine",
+  "hse": "hse",
+  "automation": "automation",
+};
+
+// Helper component for explore link with translations
+function ExploreLink() {
+  const t = useTranslations("common");
+  return (
+    <div className="flex items-center text-xs sm:text-sm font-medium text-accent group-hover:text-green-700 transition-colors mt-auto">
+      {t("explore")}
+      <ArrowRight className="ltr:ml-1 ltr:sm:ml-2 rtl:mr-1 rtl:sm:mr-2 h-3 sm:h-4 w-3 sm:w-4 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
+    </div>
+  );
+}
+
+// Helper component for featured explore link with translations
+function FeaturedExploreLink({ shortTitle }: { shortTitle: string }) {
+  const t = useTranslations("common");
+  return (
+    <div className="flex items-center text-base font-semibold text-accent">
+      {t("explore")} {shortTitle}
+      <ArrowRight className="ltr:ml-2 rtl:mr-2 h-5 w-5 ltr:group-hover:translate-x-2 rtl:group-hover:-translate-x-2 rtl:rotate-180 transition-transform" />
+    </div>
+  );
+}
 
 function BentoCard({
   domain,
@@ -22,6 +55,17 @@ function BentoCard({
   className?: string;
 }) {
   const imageSrc = domain.image;
+  const t = useTranslations("products.categories");
+  const translationKey = domainTranslationKeys[domain.id] || domain.id;
+
+  // Get translated content
+  const title = t(`${translationKey}.title`);
+  const headline = t(`${translationKey}.headline`);
+  const description = t(`${translationKey}.description`);
+  const offerings = [
+    t(`${translationKey}.offerings.1`),
+    t(`${translationKey}.offerings.2`),
+  ];
 
   return (
     <Link href={domain.route} className="h-full">
@@ -40,7 +84,7 @@ function BentoCard({
         <div className="relative h-28 sm:h-32 md:h-40 overflow-hidden flex-shrink-0">
           <Image
             src={imageSrc}
-            alt={domain.title}
+            alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -51,38 +95,35 @@ function BentoCard({
         {/* Content */}
         <EvervaultBackground containerClassName="-mt-6 sm:-mt-8 relative z-10 flex-1 flex flex-col" className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">
           {/* Title */}
-          <h3 className="text-sm sm:text-base md:text-xl font-semibold mb-1 sm:mb-2 group-hover:text-white transition-colors">
-            {domain.title}
+          <h3 className="text-sm sm:text-base md:text-xl font-semibold mb-1 sm:mb-2 group-hover:text-neutral-900 transition-colors">
+            {title}
           </h3>
 
           {/* Headline */}
-          <p className="text-[10px] sm:text-xs md:text-sm text-accent group-hover:text-red-300 font-medium mb-2 sm:mb-3 line-clamp-1 transition-colors">
-            {domain.headline}
+          <p className="text-[10px] sm:text-xs md:text-sm text-accent group-hover:text-green-300 font-medium mb-2 sm:mb-3 line-clamp-1 transition-colors">
+            {headline}
           </p>
 
           {/* Description - hidden on mobile */}
-          <p className="hidden sm:block text-xs md:text-sm text-muted-foreground group-hover:text-neutral-300 mb-3 md:mb-4 line-clamp-2 transition-colors">
-            {domain.description}
+          <p className="hidden sm:block text-xs md:text-sm text-muted-foreground group-hover:text-neutral-600 mb-3 md:mb-4 line-clamp-2 transition-colors">
+            {description}
           </p>
 
           {/* Offerings - show only on md+ */}
           <ul className="hidden md:block space-y-1.5 mb-4 flex-1">
-            {domain.offerings.slice(0, 2).map((offering) => (
+            {offerings.map((offering) => (
               <li
                 key={offering}
-                className="text-xs text-muted-foreground group-hover:text-neutral-300 flex items-center transition-colors"
+                className="text-xs text-muted-foreground group-hover:text-neutral-600 flex items-center transition-colors"
               >
-                <span className="w-1 h-1 rounded-full bg-accent group-hover:bg-red-400 mr-2 flex-shrink-0 transition-colors" />
+                <span className="w-1 h-1 rounded-full bg-accent group-hover:bg-green-400 ltr:mr-2 rtl:ml-2 flex-shrink-0 transition-colors" />
                 {offering}
               </li>
             ))}
           </ul>
 
           {/* Link - pinned to bottom */}
-          <div className="flex items-center text-xs sm:text-sm font-medium text-accent group-hover:text-white transition-colors mt-auto">
-            Explore
-            <ArrowRight className="ml-1 sm:ml-2 h-3 sm:h-4 w-3 sm:w-4 group-hover:translate-x-1 transition-transform" />
-          </div>
+          <ExploreLink />
         </EvervaultBackground>
 
         {/* Bottom accent line */}
@@ -98,6 +139,19 @@ function FeaturedBentoCard({
   domain: (typeof BUSINESS_DOMAINS)[number];
 }) {
   const imageSrc = domain.image;
+  const t = useTranslations("products.categories");
+  const translationKey = domainTranslationKeys[domain.id] || domain.id;
+
+  // Get translated content
+  const title = t(`${translationKey}.title`);
+  const headline = t(`${translationKey}.headline`);
+  const description = t(`${translationKey}.description`);
+  const offerings = [
+    t(`${translationKey}.offerings.1`),
+    t(`${translationKey}.offerings.2`),
+    t(`${translationKey}.offerings.3`),
+    t(`${translationKey}.offerings.4`),
+  ];
 
   return (
     <Link href={domain.route}>
@@ -113,7 +167,7 @@ function FeaturedBentoCard({
         <div className="relative h-56 overflow-hidden">
           <Image
             src={imageSrc}
-            alt={domain.title}
+            alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -125,37 +179,34 @@ function FeaturedBentoCard({
         <div className="relative z-10 p-8 -mt-12 flex flex-col">
           {/* Title */}
           <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-accent transition-colors">
-            {domain.title}
+            {title}
           </h3>
 
           {/* Headline */}
           <p className="text-base text-accent font-semibold mb-4">
-            {domain.headline}
+            {headline}
           </p>
 
           {/* Description */}
           <p className="text-muted-foreground mb-6 flex-grow">
-            {domain.description}
+            {description}
           </p>
 
           {/* Offerings */}
           <ul className="space-y-2 mb-6">
-            {domain.offerings.map((offering) => (
+            {offerings.map((offering) => (
               <li
                 key={offering}
                 className="text-sm text-muted-foreground flex items-center"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent ltr:mr-2 rtl:ml-2 flex-shrink-0" />
                 {offering}
               </li>
             ))}
           </ul>
 
           {/* Link */}
-          <div className="flex items-center text-base font-semibold text-accent">
-            Explore {domain.shortTitle}
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
-          </div>
+          <FeaturedExploreLink shortTitle={title} />
         </div>
 
         {/* Bottom accent line */}
@@ -166,11 +217,13 @@ function FeaturedBentoCard({
 }
 
 export function Domains() {
+  const t = useTranslations("domains");
+
   return (
     <SectionWrapper id="domains" className="overflow-hidden">
       <SectionHeader
-        title="Our Expertise"
-        subtitle="Comprehensive technology solutions across six core domains, tailored to transform your business operations."
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       {/* Grid Layout: 2 col mobile, 2 cols tablet, 3 cols desktop */}

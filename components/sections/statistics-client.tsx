@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { SectionWrapper } from '@/components/shared/section-wrapper';
 import type { Statistic } from '@/lib/types/database';
 
@@ -10,33 +11,50 @@ interface Props {
   statistics: Statistic[];
 }
 
+// Map database labels to translation keys
+const labelTranslationKeys: Record<string, string> = {
+  "Years of Experience": "yearsExperience",
+  "Product Designs": "productDesigns",
+  "Product Collaborations": "productCollaborations",
+  "Engineering Hours": "engineeringHours",
+  "Units Sold": "unitsSold",
+  "Customers Served": "customersServed",
+};
+
 export function StatisticsClient({ statistics }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const t = useTranslations("statistics.labels");
 
   return (
     <SectionWrapper variant="muted" id="statistics">
       <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-        {statistics.map((stat, index) => (
-          <motion.div
-            key={stat.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="text-center"
-          >
-            <div className="flex items-baseline justify-center">
-              <CountUp
-                end={stat.value}
-                suffix={stat.suffix}
-                start={isInView}
-              />
-            </div>
-            <p className="text-muted-foreground mt-1 sm:mt-2 text-xs sm:text-sm">
-              {stat.label}
-            </p>
-          </motion.div>
-        ))}
+        {statistics.map((stat, index) => {
+          // Get translated label
+          const translationKey = labelTranslationKeys[stat.label];
+          const translatedLabel = translationKey ? t(translationKey) : stat.label;
+
+          return (
+            <motion.div
+              key={stat.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="text-center"
+            >
+              <div className="flex items-baseline justify-center">
+                <CountUp
+                  end={stat.value}
+                  suffix={stat.suffix}
+                  start={isInView}
+                />
+              </div>
+              <p className="text-muted-foreground mt-1 sm:mt-2 text-xs sm:text-sm">
+                {translatedLabel}
+              </p>
+            </motion.div>
+          );
+        })}
       </div>
     </SectionWrapper>
   );

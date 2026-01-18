@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, Search, Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { CONTACT } from "@/lib/constants";
 
 interface EmptyStateProps {
   hasFilters?: boolean;
@@ -9,6 +11,8 @@ interface EmptyStateProps {
 }
 
 export function EmptyState({ hasFilters = false, hasJobs = true }: EmptyStateProps) {
+  const t = useTranslations("emptyState");
+
   if (!hasJobs) {
     // No jobs at all in the system
     return (
@@ -20,18 +24,17 @@ export function EmptyState({ hasFilters = false, hasJobs = true }: EmptyStatePro
         <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-6">
           <Briefcase className="h-8 w-8 text-muted-foreground" />
         </div>
-        <h3 className="text-xl font-semibold mb-2">No Open Positions</h3>
+        <h3 className="text-xl font-semibold mb-2">{t("noOpenPositions")}</h3>
         <p className="text-muted-foreground max-w-md mx-auto mb-4">
-          We don&apos;t have any open positions at the moment. However, we&apos;re always
-          looking for talented individuals.
+          {t("noPositionsMessage")}
         </p>
         <div className="inline-flex items-center gap-2 text-accent">
           <Mail className="h-4 w-4" />
           <a
-            href="mailto:careers@rax-tech.com"
+            href={`mailto:${CONTACT.email}`}
             className="hover:underline"
           >
-            Send your resume to careers@rax-tech.com
+            {t("sendResume")} {CONTACT.email}
           </a>
         </div>
       </motion.div>
@@ -48,11 +51,9 @@ export function EmptyState({ hasFilters = false, hasJobs = true }: EmptyStatePro
       <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-6">
         <Search className="h-8 w-8 text-muted-foreground" />
       </div>
-      <h3 className="text-xl font-semibold mb-2">No Positions Found</h3>
+      <h3 className="text-xl font-semibold mb-2">{t("noPositionsFound")}</h3>
       <p className="text-muted-foreground max-w-md mx-auto">
-        {hasFilters
-          ? "Try adjusting your filters to see more opportunities."
-          : "Check back soon for new opportunities."}
+        {hasFilters ? t("adjustFilters") : t("checkBackSoon")}
       </p>
     </motion.div>
   );

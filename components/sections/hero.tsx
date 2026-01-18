@@ -2,22 +2,24 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { EncryptedWords } from "@/components/ui/encrypted-words";
 import { Spotlight } from "@/components/ui/spotlight";
 import { GridPattern } from "@/components/ui/grid-pattern";
-import { COMPANY } from "@/lib/constants";
 import { GL } from "@/components/gl";
 
-const words = [
-  "IoT Solutions",
-  "Automation",
-  "e-Surveillance",
-  "Blockchain",
-  "AI Systems",
-];
-
 export function Hero() {
+  const t = useTranslations("hero");
+  const tCommon = useTranslations("common");
+
+  const words = [
+    t("animatedWords.iot"),
+    t("animatedWords.automation"),
+    t("animatedWords.surveillance"),
+    t("animatedWords.blockchain"),
+    t("animatedWords.ai"),
+  ];
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background">
       {/* Spotlight Effect */}
@@ -73,8 +75,8 @@ export function Hero() {
             className="mb-4 sm:mb-6"
           >
             <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-accent/20 bg-accent/5 text-accent text-xs sm:text-sm font-medium backdrop-blur-sm">
-              <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-accent mr-1.5 sm:mr-2 animate-pulse" />
-              25+ Years of Technology Excellence
+              <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-accent ltr:mr-1.5 ltr:sm:mr-2 rtl:ml-1.5 rtl:sm:ml-2 animate-pulse" />
+              {t("badge")}
             </span>
           </motion.div>
 
@@ -85,7 +87,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 tracking-tight"
           >
-            Technology Enabler for
+            {t("heading")}
             <br />
             <span className="relative inline-flex mt-1 sm:mt-2 min-h-[1.4em]">
               <EncryptedWords
@@ -105,7 +107,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed px-2"
           >
-            {COMPANY.description}
+            {t("subtitle")}
           </motion.p>
 
         </div>
@@ -123,7 +125,7 @@ export function Hero() {
           transition={{ duration: 1.5, repeat: Infinity }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-muted-foreground">Scroll to explore</span>
+          <span className="text-xs text-muted-foreground">{tCommon("scrollToExplore")}</span>
           <ChevronDown className="h-6 w-6 text-muted-foreground" />
         </motion.div>
       </motion.div>

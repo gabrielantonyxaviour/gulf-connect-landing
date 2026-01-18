@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +17,7 @@ import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { trackFormSubmit } from "@/lib/analytics";
 
 export function ContactForm() {
+  const t = useTranslations("contact.form");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -85,11 +87,10 @@ export function ContactForm() {
           <CheckCircle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-accent" />
         </div>
         <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
-          Message Sent!
+          {t("successTitle")}
         </h3>
         <p className="text-muted-foreground">
-          Thank you for reaching out. Our team will get back to you within 24
-          hours.
+          {t("successMessage")}
         </p>
       </motion.div>
     );
@@ -106,11 +107,11 @@ export function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="firstName">
-            First Name <span className="text-accent">*</span>
+            {t("firstName")} <span className="text-accent">*</span>
           </Label>
           <Input
             id="firstName"
-            placeholder="John"
+            placeholder={t("placeholders.firstName")}
             {...register("firstName")}
             className={errors.firstName ? "border-red-500" : ""}
           />
@@ -121,11 +122,11 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <Label htmlFor="lastName">
-            Last Name <span className="text-accent">*</span>
+            {t("lastName")} <span className="text-accent">*</span>
           </Label>
           <Input
             id="lastName"
-            placeholder="Doe"
+            placeholder={t("placeholders.lastName")}
             {...register("lastName")}
             className={errors.lastName ? "border-red-500" : ""}
           />
@@ -137,12 +138,12 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <Label htmlFor="email">
-          Email <span className="text-accent">*</span>
+          {t("email")} <span className="text-accent">*</span>
         </Label>
         <Input
           id="email"
           type="email"
-          placeholder="john@company.com"
+          placeholder={t("placeholders.email")}
           {...register("email")}
           className={errors.email ? "border-red-500" : ""}
         />
@@ -153,10 +154,10 @@ export function ContactForm() {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone (optional)</Label>
+          <Label htmlFor="phone">{t("phone")} ({t("optional")})</Label>
           <PhoneInput
             id="phone"
-            placeholder="98765 43210"
+            placeholder={t("placeholders.phone")}
             value={phoneValue}
             onChange={handlePhoneChange}
             countryCode={countryCode}
@@ -165,10 +166,10 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="company">Company (optional)</Label>
+          <Label htmlFor="company">{t("company")} ({t("optional")})</Label>
           <Input
             id="company"
-            placeholder="Your Company"
+            placeholder={t("placeholders.company")}
             {...register("company")}
           />
         </div>
@@ -176,11 +177,11 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <Label htmlFor="message">
-          Message <span className="text-accent">*</span>
+          {t("message")} <span className="text-accent">*</span>
         </Label>
         <Textarea
           id="message"
-          placeholder="Tell us about your project or inquiry..."
+          placeholder={t("placeholders.message")}
           rows={5}
           {...register("message")}
           className={errors.message ? "border-red-500" : ""}
@@ -198,13 +199,13 @@ export function ContactForm() {
       >
         {isSubmitting ? (
           <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Sending...
+            <Loader2 className="ltr:mr-2 rtl:ml-2 h-5 w-5 animate-spin" />
+            {t("submitting")}
           </>
         ) : (
           <>
-            Send Message
-            <Send className="ml-2 h-5 w-5" />
+            {t("submit")}
+            <Send className="ltr:ml-2 rtl:mr-2 h-5 w-5 rtl:rotate-180" />
           </>
         )}
       </Button>

@@ -1,0 +1,528 @@
+{
+  "common": {
+    "getInTouch": "Get in Touch",
+    "learnMore": "Learn More",
+    "explore": "Explore",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "scrollToExplore": "Scroll to explore",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and"
+  },
+  "company": {
+    "name": "Gulf Connect Solutions",
+    "shortName": "Gulf Connect",
+    "description": "Gulf Connect Solutions provides intuitive tech-driven services and solutions to enterprises. A solution-centric organization enabling digital transformation for over 25 years.",
+    "tagline": "IoT | Automation | e-Surveillance | Blockchain & Web3 | Services"
+  },
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "more": "More",
+    "careers": "Careers",
+    "gallery": "Gallery",
+    "galleryDescription": "Explore photos from our company events and celebrations."
+  },
+  "hero": {
+    "badge": "25+ Years of Technology Excellence",
+    "heading": "Technology Enabler for",
+    "subtitle": "Gulf Connect Solutions provides intuitive tech-driven services and solutions to enterprises. A solution-centric organization enabling digital transformation for over 25 years.",
+    "animatedWords": {
+      "iot": "IoT Solutions",
+      "automation": "Automation",
+      "surveillance": "e-Surveillance",
+      "blockchain": "Blockchain",
+      "ai": "AI Systems"
+    }
+  },
+  "domains": {
+    "title": "Our Expertise",
+    "subtitle": "Comprehensive technology solutions across six core domains, tailored to transform your business operations."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "End-to-end technology services from concept to deployment, backed by decades of expertise.",
+    "capabilities": "Capabilities"
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Delivering innovative technology solutions across diverse sectors worldwide.",
+    "names": {
+      "manufacturing": "Manufacturing",
+      "banking": "Banking / NBFC",
+      "power": "Power Utilities",
+      "process": "Process Industry",
+      "petroleum": "Petroleum",
+      "automotive": "Automotive",
+      "seaport": "Seaport",
+      "residential": "Residential",
+      "education": "Education",
+      "logistics": "Logistics / Warehouse",
+      "fashion": "Fashion",
+      "food": "Food & Beverages",
+      "healthcare": "Healthcare",
+      "retail": "Retail"
+    }
+  },
+  "statistics": {
+    "title": "Our Impact in Numbers",
+    "subtitle": "Over two decades of consistent growth and client success stories.",
+    "labels": {
+      "yearsExperience": "Years of Experience",
+      "productDesigns": "Product Designs",
+      "productCollaborations": "Product Collaborations",
+      "engineeringHours": "Engineering Hours",
+      "unitsSold": "Units Sold",
+      "customersServed": "Customers Served"
+    }
+  },
+  "aboutPreview": {
+    "title": "Who We Are",
+    "description": "Gulf Connect Solutions provides intuitive tech-driven services and solutions to enterprises. A solution-centric organization enabling digital transformation for over 25 years.",
+    "mission": "Our mission is to be a Technology Enabler who designs, develops, and manufactures innovative products and digital solutions that make the world smarter, safer, and more secure.",
+    "since": "Since 2000",
+    "sinceDescription": "Pioneering technology solutions for enterprises",
+    "certified": "ISO Certified",
+    "certifiedDescription": "ISO 9001:2015 certified by TUV South Asia",
+    "clients": "1,200+ Clients",
+    "clientsDescription": "Trusted by enterprises across 17+ industries"
+  },
+  "contactCta": {
+    "title": "Ready to Transform Your Business?",
+    "description": "Let's discuss how Gulf Connect can help you leverage technology for growth.",
+    "subDescription": "Our team of experts is ready to understand your needs and deliver tailored solutions."
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by industry leaders across 17+ sectors worldwide"
+  },
+  "about": {
+    "badge": "About Us",
+    "heroTitle": "Technology Excellence",
+    "heroSubtitle": "Years of",
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become a Global Innovator by delivering highly reliable quality products, providing excellent after-sales support, and maintaining best employer values."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "Technology Enabler who designs, develops, and manufactures innovative products and digital solutions that make the world smarter, safer, and more secure."
+    },
+    "journey": {
+      "title": "Our Journey",
+      "subtitle": "Key milestones that have shaped Gulf Connect over the past {years}+ years."
+    },
+    "timeline": {
+      "founded": {
+        "title": "Company Founded",
+        "description": "Gulf Connect Solutions was established with a vision to become a global technology enabler."
+      },
+      "iso": {
+        "title": "ISO Certification",
+        "description": "Achieved ISO 9001 certification, establishing our commitment to quality management systems."
+      },
+      "oem": {
+        "title": "100+ OEM Designs",
+        "description": "Reached the milestone of 100+ OEM and ODM design collaborations across multiple industries."
+      },
+      "iot": {
+        "title": "IoT Solutions Launch",
+        "description": "Expanded into Internet of Things solutions, offering remote monitoring and smart device integration."
+      },
+      "units": {
+        "title": "1M+ Units Sold",
+        "description": "Celebrated the milestone of 1 million+ units sold across our product portfolio."
+      },
+      "blockchain": {
+        "title": "Blockchain & Web3",
+        "description": "Launched Blockchain and Web3 services, embracing the future of decentralized technologies."
+      }
+    }
+  },
+  "contact": {
+    "heroTitle": "Let's start a Conversation",
+    "heroSubtitle": "Have a project in mind? We'd love to hear from you.",
+    "heroDescription": "Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "message": "Message",
+      "optional": "optional",
+      "required": "required",
+      "placeholders": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@company.com",
+        "phone": "98765 43210",
+        "company": "Your Company",
+        "message": "Tell us about your project or inquiry..."
+      },
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for reaching out. Our team will get back to you within 24 hours.",
+      "errorMessage": "Failed to send message. Please try again."
+    },
+    "offices": {
+      "title": "Our Worldwide Offices",
+      "subtitle": "With offices spanning across Asia and Europe, we're positioned to serve clients globally with local expertise and round-the-clock support.",
+      "connected": "Connected Across Continents",
+      "connectedDescription": "Our strategic presence in India, Oman, and Poland enables us to deliver seamless solutions across time zones.",
+      "connectedSubDescription": "Each office brings unique regional expertise while maintaining our unified commitment to innovation and quality.",
+      "countries": "Countries",
+      "continents": "Continents",
+      "coverage": "Coverage",
+      "headquarters": "Headquarters",
+      "regionalOffice": "Regional Office",
+      "names": {
+        "headquarters": "Rax Tech International",
+        "oman": "Gulf Connect Solutions LLC",
+        "europe": "RaxTech Europe"
+      }
+    }
+  },
+  "careers": {
+    "heroTitle": "Build the Future with Us",
+    "heroSubtitle": "Join a team of innovators creating IoT, automation, and surveillance solutions that transform industries worldwide.",
+    "viewPositions": "View Open Positions",
+    "openPosition": "Open Position",
+    "openPositions": "Open Positions",
+    "whyJoin": {
+      "title": "Why Join Gulf Connect?",
+      "subtitle": "Be part of a team that's shaping the future of technology",
+      "benefits": {
+        "innovation": {
+          "title": "Innovation First",
+          "description": "Work on cutting-edge IoT and automation technologies"
+        },
+        "growth": {
+          "title": "Growth Opportunities",
+          "description": "Clear career paths and continuous learning"
+        },
+        "balance": {
+          "title": "Work-Life Balance",
+          "description": "Flexible arrangements and supportive culture"
+        },
+        "impact": {
+          "title": "Global Impact",
+          "description": "Solutions deployed across 17+ industries worldwide"
+        },
+        "culture": {
+          "title": "Collaborative Culture",
+          "description": "Work alongside experienced engineers and innovators"
+        },
+        "benefits": {
+          "title": "Competitive Benefits",
+          "description": "Comprehensive health coverage and employee perks"
+        }
+      }
+    },
+    "filters": {
+      "department": "Department",
+      "type": "Job Type",
+      "experience": "Experience Level",
+      "allDepartments": "All Departments",
+      "allTypes": "All Types",
+      "allLevels": "All Levels"
+    },
+    "noJobs": "No open positions at the moment. Check back soon!",
+    "applyNow": "Apply Now"
+  },
+  "footer": {
+    "products": "Products",
+    "services": "Services",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "copyright": "All Rights Reserved.",
+    "productLinks": {
+      "iot": "IoT",
+      "eSurveillance": "E-Surveillance",
+      "software": "Software",
+      "marine": "Marine Technology",
+      "hse": "HSE",
+      "automation": "Automation"
+    },
+    "serviceLinks": {
+      "embeddedDesign": "Embedded Design",
+      "softwareDev": "Software Development",
+      "ai": "Artificial Intelligence",
+      "blockchain": "Blockchain & Web3",
+      "oemOdm": "OEM & ODM",
+      "staffing": "Staffing Solutions"
+    }
+  },
+  "servicePage": {
+    "startProject": "Start Your Project",
+    "learnAboutUs": "Learn About Us",
+    "exploreCapabilities": "Explore capabilities",
+    "whatWeOffer": "What We Offer",
+    "whatWeOfferSubtitle": "Comprehensive capabilities tailored to deliver exceptional results",
+    "ourProcess": "Our Process",
+    "ourProcessSubtitle": "A proven methodology that delivers results consistently",
+    "step": "Step",
+    "readyToStart": "Ready to Start Your Project?",
+    "ctaDescription": "Let's discuss how our {service} expertise can transform your ideas into reality.",
+    "contactTeam": "Contact Our Team",
+    "exploreOther": "Explore Other Services",
+    "exploreOtherSubtitle": "Discover our full range of technology services",
+    "learnMore": "Learn More",
+    "capabilities": "Capabilities",
+    "process": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "Deep dive into your requirements, goals, and technical constraints"
+      },
+      "strategy": {
+        "title": "Strategy",
+        "description": "Detailed roadmap with milestones, deliverables, and timelines"
+      },
+      "execution": {
+        "title": "Execution",
+        "description": "Agile development with regular updates and quality checkpoints"
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "Comprehensive testing, deployment, and ongoing support"
+      }
+    }
+  },
+  "productPage": {
+    "exploreProducts": "Explore products",
+    "productsHeading": "Products",
+    "productsSubheading": "Explore our complete range of products",
+    "viewCatalog": "View Catalog",
+    "enquire": "Enquire",
+    "customSolutions": "Custom Solutions",
+    "customSolutionsSubheading": "IoT solutions we've built for our customers across industries",
+    "keyOfferings": "Key Offerings",
+    "keyOfferingsSubheading": "What we deliver in this domain",
+    "interestedIn": "Interested in {category} Products?",
+    "ctaDescription": "Contact our team for pricing, technical specifications, or to discuss custom requirements for your project.",
+    "requestQuote": "Request Quote",
+    "exploreOther": "Explore Other Products",
+    "explore": "Explore"
+  },
+  "products": {
+    "categories": {
+      "iot": {
+        "title": "IoT",
+        "headline": "Sense the World Smarter",
+        "description": "Smart connected devices for remote monitoring, real-time data collection, and industrial automation.",
+        "offerings": {
+          "1": "Remote monitoring solutions",
+          "2": "Smart sensors & connectivity",
+          "3": "Real-time data analytics",
+          "4": "Industrial IoT implementations"
+        }
+      },
+      "eSurveillance": {
+        "title": "E-Surveillance",
+        "headline": "Secure. Monitor. Protect.",
+        "description": "Comprehensive security automation and surveillance solutions with alarm panels, video analytics, and access control.",
+        "offerings": {
+          "1": "Alarm automation panels",
+          "2": "Video analytics",
+          "3": "Remote monitoring systems",
+          "4": "Access control solutions"
+        }
+      },
+      "software": {
+        "title": "Software",
+        "headline": "Intelligent Software Solutions",
+        "description": "Enterprise software platforms for monitoring, management, and IoT applications.",
+        "offerings": {
+          "1": "Central monitoring software",
+          "2": "IoT platform & mobile apps",
+          "3": "Access control management",
+          "4": "Campus management systems"
+        }
+      },
+      "marine": {
+        "title": "Marine Technology",
+        "headline": "Navigate with Confidence",
+        "description": "Deep Sea Master boat management systems for maritime navigation and control.",
+        "offerings": {
+          "1": "Bridge control systems",
+          "2": "Navigation management",
+          "3": "Satellite communication",
+          "4": "Maritime data solutions"
+        }
+      },
+      "hse": {
+        "title": "HSE",
+        "headline": "Health, Safety & Environment",
+        "description": "Comprehensive HSE solutions for workplace safety, environmental monitoring, and compliance.",
+        "offerings": {
+          "1": "Assembly area monitoring",
+          "2": "LTI tracking systems",
+          "3": "Environmental sensors",
+          "4": "Safety alert devices"
+        }
+      },
+      "automation": {
+        "title": "Automation",
+        "headline": "Nullify Your Workability Errors",
+        "description": "Industrial automation panels and control systems for manufacturing and process industries.",
+        "offerings": {
+          "1": "PLC Panels",
+          "2": "VFD Panels",
+          "3": "Protection panels",
+          "4": "Annunciator systems"
+        }
+      }
+    }
+  },
+  "servicesPage": {
+    "embeddedDesign": {
+      "title": "Embedded Design",
+      "description": "End-to-end embedded systems design from concept to production.",
+      "capabilities": {
+        "1": "Hardware Design & PCB Layout",
+        "2": "Schematic Design",
+        "3": "Prototyping & Production Support",
+        "4": "FPGA Design Services",
+        "5": "System-level Design",
+        "6": "Testing & Validation",
+        "7": "Obsolescence Management"
+      }
+    },
+    "softwareDev": {
+      "title": "Software Development",
+      "description": "Custom software solutions for web, desktop, and enterprise applications.",
+      "capabilities": {
+        "1": "Custom Application Development",
+        "2": "Product Development",
+        "3": "ERP Software Development",
+        "4": "Integration Services",
+        "5": "Implementation & Support",
+        "6": "Windows & Web Applications",
+        "7": "Full Application Lifecycle Management"
+      }
+    },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "AI-powered solutions for automation, analytics, and intelligent systems.",
+      "capabilities": {
+        "1": "Machine Learning Integration",
+        "2": "Predictive Analytics",
+        "3": "Computer Vision Solutions",
+        "4": "AI-powered Automation",
+        "5": "Natural Language Processing",
+        "6": "Edge AI Implementation"
+      }
+    },
+    "blockchain": {
+      "title": "Blockchain & Web3",
+      "description": "Decentralized technologies and Web3 solutions for enterprise applications.",
+      "capabilities": {
+        "1": "Blockchain Consulting",
+        "2": "Smart Contract Development",
+        "3": "Web3 Integration Services",
+        "4": "Decentralized Application Development",
+        "5": "Tokenization Solutions",
+        "6": "Blockchain Security Audits"
+      }
+    },
+    "oemOdm": {
+      "title": "OEM & ODM",
+      "description": "Original equipment and design manufacturing with 100+ successful projects.",
+      "capabilities": {
+        "1": "Original Equipment Manufacturing",
+        "2": "Original Design Manufacturing",
+        "3": "Product Digitization",
+        "4": "Electronic Controller Development",
+        "5": "Data Connectivity Solutions",
+        "6": "End-to-end Product Development"
+      }
+    },
+    "staffing": {
+      "title": "Staffing Solutions",
+      "description": "Technical talent acquisition and project-based resourcing.",
+      "capabilities": {
+        "1": "Technical talent acquisition",
+        "2": "Contract staffing",
+        "3": "Project-based resourcing"
+      }
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "phone": "Please enter a valid phone number",
+    "minLength": "Must be at least {min} characters",
+    "maxLength": "Must be at most {max} characters"
+  },
+  "language": {
+    "select": "Select Language",
+    "current": "Current Language"
+  },
+  "gallery": {
+    "heroTitle": "Our Gallery",
+    "heroSubtitle": "Explore moments from our company events, celebrations, and team activities that make Gulf Connect a great place to work.",
+    "events": {
+      "pongal2025": {
+        "title": "Pongal Celebration 2025",
+        "description": "Celebrating the harvest festival with our team"
+      },
+      "environmental2025": {
+        "title": "Environmental Training 2025",
+        "description": "GEM training and environmental awareness program"
+      },
+      "sportsDay2022": {
+        "title": "Sports Day 2022",
+        "description": "Annual sports day celebration with team activities"
+      }
+    }
+  },
+  "jobDetails": {
+    "applyingFor": "Applying for",
+    "aboutTheRole": "About the Role",
+    "requirements": "Requirements",
+    "responsibilities": "Responsibilities",
+    "benefits": "Benefits",
+    "viewDetails": "View Details"
+  },
+  "openPositions": {
+    "title": "Open Positions",
+    "subtitle": "Find your next opportunity"
+  },
+  "emptyState": {
+    "noOpenPositions": "No Open Positions",
+    "noPositionsMessage": "We don't have any open positions at the moment. However, we're always looking for talented individuals.",
+    "sendResume": "Send your resume to",
+    "noPositionsFound": "No Positions Found",
+    "adjustFilters": "Try adjusting your filters to see more opportunities.",
+    "checkBackSoon": "Check back soon for new opportunities."
+  },
+  "jobFilters": {
+    "all": "All",
+    "engineering": "Engineering",
+    "marketing": "Marketing",
+    "sales": "Sales"
+  }
+}

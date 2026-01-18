@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Globe } from "@/components/ui/globe";
 import { OfficeCards } from "./office-cards";
 import { SITE_COMPANY_ID } from "@/lib/constants";
 
 export function GlobalOffices() {
   const [selectedOfficeId, setSelectedOfficeId] = useState<string | null>(SITE_COMPANY_ID);
+  const t = useTranslations("contact.offices");
 
   return (
     <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-background to-muted/30">
@@ -14,11 +16,10 @@ export function GlobalOffices() {
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4">
-            Our <span className="text-accent">Worldwide</span> Offices
+            {t("title")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            With offices spanning across Asia and Europe, we&apos;re positioned to serve
-            clients globally with local expertise and round-the-clock support.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -36,18 +37,14 @@ export function GlobalOffices() {
           <div className="order-1 lg:order-2 space-y-6">
             <div className="p-4 sm:p-5 md:p-6 rounded-2xl bg-card border border-border">
               <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-                Connected Across Continents
+                {t("connected")}
               </h3>
               <div className="space-y-3 sm:space-y-4 text-muted-foreground">
                 <p>
-                  Our strategic presence in <span className="text-foreground font-medium">India</span>,{" "}
-                  <span className="text-foreground font-medium">Oman</span>, and the{" "}
-                  <span className="text-foreground font-medium">Poland</span> enables us to deliver
-                  seamless solutions across time zones.
+                  {t("connectedDescription")}
                 </p>
                 <p>
-                  Each office brings unique regional expertise while maintaining
-                  our unified commitment to innovation and quality.
+                  {t("connectedSubDescription")}
                 </p>
               </div>
 
@@ -55,15 +52,15 @@ export function GlobalOffices() {
               <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-4 pt-4 sm:mt-5 sm:pt-5 md:mt-6 md:pt-6 border-t border-border">
                 <div className="text-center">
                   <div className="text-xl sm:text-2xl font-bold text-accent">3</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground">Countries</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground">{t("countries")}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-xl sm:text-2xl font-bold text-accent">2</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground">Continents</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground">{t("continents")}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-xl sm:text-2xl font-bold text-accent">24/7</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground">Coverage</div>
+                  <div className="text-[10px] sm:text-xs text-muted-foreground">{t("coverage")}</div>
                 </div>
               </div>
             </div>

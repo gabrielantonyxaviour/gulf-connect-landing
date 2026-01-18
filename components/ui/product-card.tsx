@@ -73,18 +73,18 @@ export function ProductCard({
               <span className="text-xs font-medium text-accent uppercase tracking-wider">
                 {category}
               </span>
-              <h3 className="text-base sm:text-lg font-bold mt-1 group-hover:text-accent transition-colors">
+              <h3 className="text-base sm:text-lg font-bold mt-1 text-foreground">
                 {name}
               </h3>
               {model && (
-                <span className="text-xs text-muted-foreground font-mono">
+                <span className="text-xs font-mono px-2 py-0.5 rounded bg-foreground/80 text-background">
                   {model}
                 </span>
               )}
             </div>
             {Icon && (
               <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent group-hover:text-white transition-colors" />
+                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent group-hover:text-green-700 transition-colors" />
               </div>
             )}
           </div>
@@ -176,19 +176,19 @@ export function ProductCardLarge({
               <div className="flex items-center gap-3 sm:gap-4 mb-4">
                 {Icon && (
                   <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-accent group-hover:text-white transition-colors" />
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-accent group-hover:text-green-700 transition-colors" />
                   </div>
                 )}
                 <div>
                   <span className="text-xs font-medium text-accent uppercase tracking-wider">
                     {category}
                   </span>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
                     {name}
                   </h3>
                   {model && (
-                    <span className="text-sm text-muted-foreground font-mono">
-                      Model: {model}
+                    <span className="text-sm font-mono px-2 py-0.5 rounded bg-foreground/80 text-background">
+                      {model}
                     </span>
                   )}
                 </div>

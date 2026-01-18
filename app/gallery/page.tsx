@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { SEO } from "@/lib/constants";
 import { getGalleryImageUrl } from "@/lib/storage";
 import { GalleryHero } from "./components/gallery-hero";
@@ -9,12 +10,11 @@ export const metadata: Metadata = {
   description: SEO.gallery.description,
 };
 
-// Gallery events data with Supabase storage URLs
-const GALLERY_EVENTS = [
+// Gallery events data with translation keys
+const GALLERY_EVENTS_DATA = [
   {
     id: "pongal-2025",
-    title: "Pongal Celebration 2025",
-    description: "Celebrating the harvest festival with our team",
+    translationKey: "pongal2025",
     date: "January 2025",
     images: [
       getGalleryImageUrl("pongal-2025", "img_2111.jpeg"),
@@ -30,8 +30,7 @@ const GALLERY_EVENTS = [
   },
   {
     id: "environmental-2025",
-    title: "Environmental Training 2025",
-    description: "GEM training and environmental awareness program",
+    translationKey: "environmental2025",
     date: "2025",
     images: [
       getGalleryImageUrl("environmental-2025", "gem_training_img1.jpeg"),
@@ -43,8 +42,7 @@ const GALLERY_EVENTS = [
   },
   {
     id: "sports-day-2022",
-    title: "Sports Day 2022",
-    description: "Annual sports day celebration with team activities",
+    translationKey: "sportsDay2022",
     date: "2022",
     images: [
       getGalleryImageUrl("sports-day-2022", "all-1.jpg"),
@@ -57,11 +55,22 @@ const GALLERY_EVENTS = [
   },
 ];
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const t = await getTranslations("gallery.events");
+
+  // Build events with translated content
+  const events = GALLERY_EVENTS_DATA.map((event) => ({
+    id: event.id,
+    title: t(`${event.translationKey}.title`),
+    description: t(`${event.translationKey}.description`),
+    date: event.date,
+    images: event.images,
+  }));
+
   return (
     <>
       <GalleryHero />
-      <GalleryGrid events={GALLERY_EVENTS} />
+      <GalleryGrid events={events} />
     </>
   );
 }

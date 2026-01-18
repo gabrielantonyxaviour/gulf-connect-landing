@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   SectionWrapper,
   SectionHeader,
@@ -9,28 +10,31 @@ import {
 import { cn } from "@/lib/utils";
 
 interface Industry {
-  name: string;
+  key: string;
   image: string;
 }
 
-const industries: Industry[] = [
-  { name: "Manufacturing", image: "/industries/manufacturing.png" },
-  { name: "Banking & NBFC", image: "/industries/banking.png" },
-  { name: "Power Utilities", image: "/industries/power.png" },
-  { name: "Process Industry", image: "/industries/process.png" },
-  { name: "Petroleum", image: "/industries/petroleum.png" },
-  { name: "Automotive", image: "/industries/automotive.png" },
-  { name: "Seaport", image: "/industries/seaport.png" },
-  { name: "Residential", image: "/industries/residential.png" },
-  { name: "Education", image: "/industries/education.png" },
-  { name: "Logistics", image: "/industries/logistics.png" },
-  { name: "Fashion", image: "/industries/fashion.png" },
-  { name: "Food & Beverages", image: "/industries/food.png" },
-  { name: "Healthcare", image: "/industries/healthcare.png" },
-  { name: "Retail", image: "/industries/retail.png" },
+const industryData: Industry[] = [
+  { key: "manufacturing", image: "/industries/manufacturing.png" },
+  { key: "banking", image: "/industries/banking.png" },
+  { key: "power", image: "/industries/power.png" },
+  { key: "process", image: "/industries/process.png" },
+  { key: "petroleum", image: "/industries/petroleum.png" },
+  { key: "automotive", image: "/industries/automotive.png" },
+  { key: "seaport", image: "/industries/seaport.png" },
+  { key: "residential", image: "/industries/residential.png" },
+  { key: "education", image: "/industries/education.png" },
+  { key: "logistics", image: "/industries/logistics.png" },
+  { key: "fashion", image: "/industries/fashion.png" },
+  { key: "food", image: "/industries/food.png" },
+  { key: "healthcare", image: "/industries/healthcare.png" },
+  { key: "retail", image: "/industries/retail.png" },
 ];
 
 function IndustryCard({ industry, index }: { industry: Industry; index: number }) {
+  const t = useTranslations("industries.names");
+  const name = t(industry.key);
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -48,7 +52,7 @@ function IndustryCard({ industry, index }: { industry: Industry; index: number }
       <div className="absolute inset-0">
         <Image
           src={industry.image}
-          alt={industry.name}
+          alt={name}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
@@ -58,7 +62,7 @@ function IndustryCard({ industry, index }: { industry: Industry; index: number }
 
       {/* Name */}
       <span className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 text-xs sm:text-sm font-semibold text-white text-center group-hover:text-accent transition-colors z-10">
-        {industry.name}
+        {name}
       </span>
     </motion.div>
   );
@@ -80,7 +84,8 @@ function InfiniteMarquee({
   };
 
   return (
-    <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)] sm:[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+    // Force LTR direction to keep animation consistent regardless of page RTL setting
+    <div dir="ltr" className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)] sm:[mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
       <motion.div
         className="flex gap-3 sm:gap-4 py-3 sm:py-4"
         animate={{
@@ -98,7 +103,7 @@ function InfiniteMarquee({
         {/* Duplicate industries for seamless loop */}
         {[...industries, ...industries].map((industry, index) => (
           <IndustryCard
-            key={`${industry.name}-${index}`}
+            key={`${industry.key}-${index}`}
             industry={industry}
             index={index % industries.length}
           />
@@ -109,15 +114,17 @@ function InfiniteMarquee({
 }
 
 export function Industries() {
+  const t = useTranslations("industries");
+
   // Split industries into two rows
-  const firstRow = industries.slice(0, 7);
-  const secondRow = industries.slice(7);
+  const firstRow = industryData.slice(0, 7);
+  const secondRow = industryData.slice(7);
 
   return (
     <SectionWrapper id="industries" className="overflow-hidden">
       <SectionHeader
-        title="Industries We Serve"
-        subtitle="Delivering innovative technology solutions across diverse sectors worldwide."
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       {/* Marquee Rows */}

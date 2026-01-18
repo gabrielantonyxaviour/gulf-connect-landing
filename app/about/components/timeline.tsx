@@ -1,48 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { COMPANY } from "@/lib/constants";
 
-const milestones = [
-  {
-    year: "2000",
-    title: "Company Founded",
-    description:
-      "Rax Tech International was established in Chennai with a vision to become a global technology enabler.",
-  },
-  {
-    year: "2005",
-    title: "ISO Certification",
-    description:
-      "Achieved ISO 9001 certification, establishing our commitment to quality management systems.",
-  },
-  {
-    year: "2010",
-    title: "100+ OEM Designs",
-    description:
-      "Reached the milestone of 100+ OEM and ODM design collaborations across multiple industries.",
-  },
-  {
-    year: "2015",
-    title: "IoT Solutions Launch",
-    description:
-      "Expanded into Internet of Things solutions, offering remote monitoring and smart device integration.",
-  },
-  {
-    year: "2020",
-    title: "1M+ Units Sold",
-    description:
-      "Celebrated the milestone of 1 million+ units sold across our product portfolio.",
-  },
-  {
-    year: "2024",
-    title: "Blockchain & Web3",
-    description:
-      "Launched Blockchain and Web3 services, embracing the future of decentralized technologies.",
-  },
-];
-
 export function Timeline() {
+  const t = useTranslations("about");
+  const tTimeline = useTranslations("about.timeline");
+
+  const milestones = [
+    {
+      year: "2000",
+      titleKey: "founded.title",
+      descriptionKey: "founded.description",
+    },
+    {
+      year: "2005",
+      titleKey: "iso.title",
+      descriptionKey: "iso.description",
+    },
+    {
+      year: "2010",
+      titleKey: "oem.title",
+      descriptionKey: "oem.description",
+    },
+    {
+      year: "2015",
+      titleKey: "iot.title",
+      descriptionKey: "iot.description",
+    },
+    {
+      year: "2020",
+      titleKey: "units.title",
+      descriptionKey: "units.description",
+    },
+    {
+      year: "2024",
+      titleKey: "blockchain.title",
+      descriptionKey: "blockchain.description",
+    },
+  ];
+
   return (
     <section className="py-10 sm:py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -52,10 +50,11 @@ export function Timeline() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-10 md:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Our Journey</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
+            {t("journey.title")}
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Key milestones that have shaped Rax Tech over the past{" "}
-            {COMPANY.yearsInBusiness}+ years.
+            {t("journey.subtitle", { years: COMPANY.yearsInBusiness })}
           </p>
         </motion.div>
 
@@ -90,10 +89,10 @@ export function Timeline() {
                         {milestone.year}
                       </span>
                       <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                        {milestone.title}
+                        {tTimeline(milestone.titleKey)}
                       </h3>
                       <p className="text-muted-foreground">
-                        {milestone.description}
+                        {tTimeline(milestone.descriptionKey)}
                       </p>
                     </div>
                   </div>
