@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: SITE_SEO.home.title,
   description: SITE_SEO.home.description,
-  keywords: SITE_SEO.keywords,
+  keywords: [...SITE_SEO.keywords],
   authors: [{ name: SITE_SEO.companyName }],
   openGraph: {
     type: "website",
