@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { Globe } from "@/components/ui/globe";
 import { OfficeCards } from "./office-cards";
+import { SITE_COMPANY_ID } from "@/lib/constants";
 
 export function GlobalOffices() {
-  const [selectedOfficeId, setSelectedOfficeId] = useState<string | null>("headquarters");
+  const [selectedOfficeId, setSelectedOfficeId] = useState<string | null>(SITE_COMPANY_ID);
 
   return (
     <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-background to-muted/30">

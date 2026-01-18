@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Mail, MapPin, Phone, Clock, Building2 } from "lucide-react";
-import { OFFICES } from "@/lib/constants";
+import { SORTED_OFFICES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface OfficeCardsProps {
@@ -31,7 +31,7 @@ export function OfficeCards({ selectedOfficeId, onOfficeSelect }: OfficeCardsPro
     // Update times immediately
     const updateTimes = () => {
       const times: Record<string, string> = {};
-      OFFICES.forEach((office) => {
+      SORTED_OFFICES.forEach((office) => {
         times[office.id] = formatTime(office.timezone);
       });
       setCurrentTimes(times);
@@ -45,7 +45,7 @@ export function OfficeCards({ selectedOfficeId, onOfficeSelect }: OfficeCardsPro
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-      {OFFICES.map((office) => {
+      {SORTED_OFFICES.map((office) => {
         const isSelected = selectedOfficeId === office.id;
         const isHeadquarters = office.type === "Headquarters";
 

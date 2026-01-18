@@ -1,6 +1,10 @@
 // Rax Tech International - Site Constants
 // Generated from DATA.md
 
+// Identifies which company's website this is
+// Options: "headquarters" | "oman" | "europe"
+export const SITE_COMPANY_ID = "oman" as const;
+
 export const COMPANY = {
   name: "Rax Tech International",
   shortName: "Rax Tech",
@@ -307,79 +311,79 @@ export const PRODUCT_CATALOG = {
       {
         model: "RT-RC01-W",
         name: "1 Channel Controller",
-        short_description: "Up to 20A, 230VAC, 1 circuit controller, Mobile App, Wifi communication",
+        description: "Up to 20A, 230VAC, 1 circuit controller, Mobile App, Wifi communication",
         image: "/products/iot/rt-rc01-w.png",
       },
       {
         model: "RT-RC03-W",
         name: "3 Channel Controller",
-        short_description: "Up to 5A, 230VAC, 3 circuit control through mobile app, Wifi communication",
+        description: "Up to 5A, 230VAC, 3 circuit control through mobile app, Wifi communication",
         image: "/products/iot/rt-rc03-w.png",
       },
       {
         model: "RT-LS08-W",
         name: "8 Channel Load Sensing",
-        short_description: "8 channel load sensing unit with Wifi connectivity",
+        description: "8 channel load sensing unit with Wifi connectivity",
         image: "/products/iot/rt-ls08-w.png",
       },
       {
         model: "RT-DFI-W",
         name: "Deep Freezer IoT (Wifi)",
-        short_description: "Temperature and Humidity monitoring with Wifi connectivity",
+        description: "Temperature and Humidity monitoring with Wifi connectivity",
         image: "/products/iot/rt-dfi-w.png",
       },
       {
         model: "RT-DFI-G",
         name: "Deep Freezer IoT (GSM)",
-        short_description: "Temperature and Humidity monitoring with GPRS connectivity",
+        description: "Temperature and Humidity monitoring with GPRS connectivity",
         image: "/products/iot/rt-dfi-g.png",
       },
       {
         model: "RT-WQF-W",
         name: "Water Quality Sensor",
-        short_description: "PH and ORP sensors, pulse flow measurement, Wifi connectivity",
+        description: "PH and ORP sensors, pulse flow measurement, Wifi connectivity",
         image: "/products/iot/rt-wqf-w.png",
       },
       {
         model: "RT-ATU-W",
         name: "Asset Tracking Unit",
-        short_description: "Ensuring device real working status and efficiency of the machine, Wifi communication",
+        description: "Ensuring device real working status and efficiency of the machine, Wifi communication",
         image: "/products/iot/rt-atu-w.png",
       },
       {
         model: "RT-Z01-W",
         name: "Single Zone Unit",
-        short_description: "Single digital input zone with Wifi communication",
+        description: "Single digital input zone with Wifi communication",
         image: "/products/iot/rt-z01-w.png",
       },
       {
         model: "RT-Z03-W",
         name: "Three Zone Unit",
-        short_description: "Three zone input & feedback with Wifi communication",
+        description: "Three zone input & feedback with Wifi communication",
         image: "/products/iot/rt-z03-w.png",
       },
       {
         model: "RT-SOS-G",
         name: "SOS Device",
-        short_description: "Safety device for children, elders and women with tracking software",
+        description: "Safety device for children, elders and women with tracking software",
         image: "/products/iot/rt-sos-g.png",
       },
       {
         model: "RT-IEI-E-G0",
         name: "Industrial Edge IoT Gateway",
-        short_description: "Industrial data collection with Wifi, Ethernet, GSM or LoRA connectivity",
+        description: "Industrial data collection with Wifi, Ethernet, GSM or LoRA connectivity",
         image: "/products/iot/rt-iei-e-g0.png",
       },
       {
         model: "RT-RMC-GX",
         name: "Rack Monitoring Controller",
-        short_description: "Ethernet-based monitoring for rack and server room",
+        description: "Ethernet-based monitoring for rack and server room",
         image: "/products/iot/rt-rmc-gx.png",
       },
       {
         model: "RT-ICM",
         name: "AI Conditional Monitoring",
-        short_description: "AI-based conditional monitoring for motors and pumps",
+        description: "AI-based conditional monitoring for motors and pumps",
         image: "/products/iot/rt-icm.png",
       },
     ],
@@ -387,49 +391,49 @@ export const PRODUCT_CATALOG = {
       {
         model: "RT-CP-WSI",
         name: "Water Softener IoT",
-        short_description: "Water softener IoT solution with mobile app",
+        description: "Water softener IoT solution with mobile app",
         image: "/products/iot/rt-cp-wsi.png",
       },
       {
         model: "RT-CP-WAC",
         name: "Water Treatment Controller",
-        short_description: "IoT controller for water treatment systems",
+        description: "IoT controller for water treatment systems",
         image: "/products/iot/rt-cp-wac.png",
       },
       {
         model: "RT-CP-DBX",
         name: "Door Box",
-        short_description: "Last mile connectivity solution",
+        description: "Last mile connectivity solution",
         image: "/products/iot/rt-cp-dbx.png",
       },
       {
         model: "RT-CP-SILAE",
         name: "Silae",
-        short_description: "Usecase for garments industry sustainability",
+        description: "Usecase for garments industry sustainability",
         image: "/products/iot/rt-cp-silae.png",
       },
       {
         model: "RT-CP-VM",
         name: "Vending Machine Controller",
-        short_description: "Hardware for automatic tea/coffee vending machine",
+        description: "Hardware for automatic tea/coffee vending machine",
         image: "/products/iot/rt-cp-vm.png",
       },
       {
         model: "RT-CP-Cleaner",
         name: "Solar Cleaner Card",
-        short_description: "Solar cleaning robots - cleaner control card",
+        description: "Solar cleaning robots - cleaner control card",
         image: "/products/iot/rt-cp-cleaner.png",
       },
       {
         model: "RT-CP-Shuttle",
         name: "Solar Shuttle Card",
-        short_description: "Solar cleaning robots - shuttle control card",
+        description: "Solar cleaning robots - shuttle control card",
         image: "/products/iot/rt-cp-shuttle.png",
       },
       {
         model: "RT-CP-Delibo",
         name: "Delibo Smart Racks",
-        short_description: "Smart rack solution for automated storage",
+        description: "Smart rack solution for automated storage",
         image: "/products/iot/rt-cp-delibo.png",
       },
     ],
@@ -441,103 +445,103 @@ export const PRODUCT_CATALOG = {
       {
         model: "RT-AP-4z",
         name: "Alarm Panel 4 Zone",
-        short_description: "4 zone alarm panel for small installations",
+        description: "4 zone alarm panel for small installations",
         image: "/products/e-surveillance/rt-ap-4z.png",
       },
       {
         model: "RT-AP-8z",
         name: "Alarm Panel 8 Zone",
-        short_description: "8 zone alarm panel for medium installations",
+        description: "8 zone alarm panel for medium installations",
         image: "/products/e-surveillance/rt-ap-8z.png",
       },
       {
         model: "RT-AP-16z",
         name: "Alarm Panel 16 Zone",
-        short_description: "16 zone alarm panel for larger installations",
+        description: "16 zone alarm panel for larger installations",
         image: "/products/e-surveillance/rt-ap-16z.png",
       },
       {
         model: "RT-AAP-32Z",
         name: "Alarm Automation Panel 32 Zone",
-        short_description: "32 zone alarm automation panel with advanced features",
+        description: "32 zone alarm automation panel with advanced features",
         image: "/products/e-surveillance/rt-aap-32z.png",
       },
       {
         model: "RT-AAP-48Z",
         name: "Alarm Automation Panel 48 Zone",
-        short_description: "48 zone alarm automation panel for enterprise installations",
+        description: "48 zone alarm automation panel for enterprise installations",
         image: "/products/e-surveillance/rt-aap-48z.png",
       },
       {
         model: "RT-KYPD-G2",
         name: "Login Keypad",
-        short_description: "Login keypad for alarm panel access control",
+        description: "Login keypad for alarm panel access control",
         image: "/products/e-surveillance/rt-kypd-g2.png",
       },
       {
         model: "RT-2WC-D31",
         name: "2-Way Communication",
-        short_description: "Standard speaker for 2-way communication",
+        description: "Standard speaker for 2-way communication",
         image: "/products/e-surveillance/rt-2wc-d31.png",
       },
       {
         model: "RT-ACS-OTP-KPD",
         name: "Access OTP Keypad",
-        short_description: "OTP-based keypad for secure access control",
+        description: "OTP-based keypad for secure access control",
         image: "/products/e-surveillance/rt-acs-otp-kpd.png",
       },
       {
         model: "RT-EVA-G0",
         name: "Edge Video Analytics",
-        short_description: "AI-powered edge video analytics system",
+        description: "AI-powered edge video analytics system",
         image: "/products/e-surveillance/rt-eva-g0.png",
       },
       {
         model: "RT-2W4G-G0",
         name: "4G 2-Way Communication",
-        short_description: "4G-based 2-way communication unit",
+        description: "4G-based 2-way communication unit",
         image: "/products/e-surveillance/rt-2w4g-g0.png",
       },
       {
         model: "RT-R1M2S-26Q",
         name: "4G LTE Router",
-        short_description: "Industrial 4G LTE router for reliable connectivity",
+        description: "Industrial 4G LTE router for reliable connectivity",
         image: "/products/e-surveillance/rt-r1m2s-26q.png",
       },
       {
         model: "RT-IRC-4C",
         name: "Interposing Relay Panel",
-        short_description: "4 channel interposing relay panel",
+        description: "4 channel interposing relay panel",
         image: "/products/e-surveillance/rt-irc-4c.png",
       },
       {
         model: "RT-IRC05-UPS",
         name: "Interposing Relay Panel with Feedback",
-        short_description: "Interposing relay panel with UPS and feedback",
+        description: "Interposing relay panel with UPS and feedback",
         image: "/products/e-surveillance/rt-irc05-ups.png",
       },
       {
         model: "RT-PCMU-G1-00",
         name: "PCMU",
-        short_description: "Power and Communication Management Unit",
+        description: "Power and Communication Management Unit",
         image: "/products/e-surveillance/rt-pcmu-g1-00.png",
       },
       {
         model: "RT-ESG-G",
         name: "Electronic Security Guard",
-        short_description: "Wired & wireless electronic security guard system",
+        description: "Wired & wireless electronic security guard system",
         image: "/products/e-surveillance/rt-esg-g.png",
       },
       {
         model: "RT-TLS",
         name: "Temperature & Light Sensor",
-        short_description: "Combined temperature and light sensing unit",
+        description: "Combined temperature and light sensing unit",
         image: "/products/e-surveillance/rt-tls.png",
       },
       {
         model: "RT-TSU",
         name: "Temperature Sensor Unit",
-        short_description: "Dedicated temperature sensing unit",
+        description: "Dedicated temperature sensing unit",
         image: "/products/e-surveillance/rt-tsu.png",
       },
     ],
@@ -549,37 +553,37 @@ export const PRODUCT_CATALOG = {
       {
         model: "RT-SW-CMMS",
         name: "CMMS",
-        short_description: "Central Monitoring and Management Software",
+        description: "Central Monitoring and Management Software",
         image: "/products/software/rt-sw-cmms.png",
       },
       {
         model: "RT-SW-ACSOTP",
         name: "OTP Management Software",
-        short_description: "OTP management software for secured access control of safe rooms",
+        description: "OTP management software for secured access control of safe rooms",
         image: "/products/software/rt-sw-acsotp.png",
       },
       {
         model: "RT-SW-RMC",
         name: "Smart Rack Monitoring",
-        short_description: "Smart rack monitoring central software",
+        description: "Smart rack monitoring central software",
         image: "/products/software/rt-sw-rmc.png",
       },
       {
         model: "RT-SW-FIOT",
         name: "IoT Platform",
-        short_description: "IoT platform software and mobile app",
+        description: "IoT platform software and mobile app",
         image: "/products/software/rt-sw-fiot.png",
       },
       {
         model: "RT-SW-SCM",
         name: "Smart Campus Master",
-        short_description: "Complete cloud-based school management including ERP, safety, security and campus data monitoring",
+        description: "Complete cloud-based school management including ERP, safety, security and campus data monitoring",
         image: "/products/software/rt-sw-scm.png",
       },
       {
         model: "RT-SW-DSM",
         name: "Marine Navigation App",
-        short_description: "Marine navigation management application",
+        description: "Marine navigation management application",
         image: "/products/software/rt-sw-dsm.png",
       },
     ],
@@ -591,25 +595,25 @@ export const PRODUCT_CATALOG = {
       {
         model: "RT-MBU-R0",
         name: "DSM Master Bridge",
-        short_description: "Control and monitoring hub of the Deep Sea Master Boat Management System",
+        description: "Control and monitoring hub of the Deep Sea Master Boat Management System",
         image: "/products/marine/rt-mbu-r0.png",
       },
       {
         model: "RT-SBU-R0",
         name: "DSM Slave Bridge",
-        short_description: "Real-time data and executes control commands received from the Master Bridge Unit",
+        description: "Real-time data and executes control commands received from the Master Bridge Unit",
         image: "/products/marine/rt-sbu-r0.png",
       },
       {
         model: "RT-MCU-R0",
         name: "DSM Master Control",
-        short_description: "Master Control Unit equipped with emergency push button for SOS/distress",
+        description: "Master Control Unit equipped with emergency push button for SOS/distress",
         image: "/products/marine/rt-mcu-r0.png",
       },
       {
         model: "RT-STJ-IM",
         name: "Satellite Transponder",
-        short_description: "Satellite transponder for acquiring satellite data for the system",
+        description: "Satellite transponder for acquiring satellite data for the system",
         image: "/products/marine/rt-stj-im.png",
       },
     ],
@@ -621,37 +625,37 @@ export const PRODUCT_CATALOG = {
       {
         model: "RT-HSE-AAS",
         name: "Assembly Area System",
-        short_description: "People count AI solution with HSE Dashboard Software",
+        description: "People count AI solution with HSE Dashboard Software",
         image: "/products/hse/rt-hse-aas.png",
       },
       {
         model: "RT-LTI-G0",
         name: "XLite LTI Clock",
-        short_description: "LTI tracking clock with dedicated LTI App",
+        description: "LTI tracking clock with dedicated LTI App",
         image: "/products/hse/rt-lti-g0.png",
       },
       {
         model: "RT-THAPS-W",
         name: "THAPS",
-        short_description: "Temperature, Humidity, Air Pressure Sensor with FIOT App",
+        description: "Temperature, Humidity, Air Pressure Sensor with FIOT App",
         image: "/products/hse/rt-thaps-w.png",
       },
       {
         model: "RT-THOPS-W",
         name: "THOPS",
-        short_description: "Temperature, Humidity, Oxygen Pressure Sensor with FIOT App",
+        description: "Temperature, Humidity, Oxygen Pressure Sensor with FIOT App",
         image: "/products/hse/rt-thops-w.png",
       },
       {
         model: "RT-SOS-G",
         name: "SOS Device",
-        short_description: "Emergency SOS device with FIOT App integration",
+        description: "Emergency SOS device with FIOT App integration",
         image: "/products/hse/rt-sos-g.png",
       },
       {
         model: "RT-WAC-W-G0",
         name: "Wifi Clock",
-        short_description: "Wifi-enabled clock for time synchronization",
+        description: "Wifi-enabled clock for time synchronization",
         image: "/products/hse/rt-wac-w-g0.png",
       },
     ],
@@ -663,31 +667,31 @@ export const PRODUCT_CATALOG = {
       {
         model: "RT-AUTO-PLC",
         name: "PLC Panels",
-        short_description: "Programmable Logic Controller panels for industrial automation",
+        description: "Programmable Logic Controller panels for industrial automation",
         image: "/products/automation/rt-auto-plc.png",
       },
       {
         model: "RT-AUTO-BBP",
         name: "Busbar Protection Panel",
-        short_description: "Protection panel for busbar systems",
+        description: "Protection panel for busbar systems",
         image: "/products/automation/rt-auto-bbp.png",
       },
       {
         model: "RT-AUTO-VFD",
         name: "VFD Panels",
-        short_description: "Variable Frequency Drive panels for motor control",
+        description: "Variable Frequency Drive panels for motor control",
         image: "/products/automation/rt-auto-vfd.png",
       },
       {
         model: "RT-AUTO-TPP",
         name: "Transformer Protection Panel",
-        short_description: "Protection panel for transformer systems",
+        description: "Protection panel for transformer systems",
         image: "/products/automation/rt-auto-tpp.png",
       },
       {
         model: "RT-AUTO-ANN",
         name: "Annunciator Panel",
-        short_description: "Annunciator panel for alarm indication and monitoring",
+        description: "Annunciator panel for alarm indication and monitoring",
         image: "/products/automation/rt-auto-ann.png",
       },
     ],
@@ -701,7 +705,7 @@ export const PRODUCTS = {
     route: "/products/e-surveillance",
     categories: PRODUCT_CATALOG["e-surveillance"].products.map((p) => ({
       name: p.name,
-      items: [p.short_description],
+      items: [p.description],
     })),
   },
   iotDevices: {
@@ -709,7 +713,7 @@ export const PRODUCTS = {
     route: "/products/iot",
     categories: PRODUCT_CATALOG.iot.products.map((p) => ({
       name: p.name,
-      items: [p.short_description],
+      items: [p.description],
     })),
   },
 } as const;
@@ -834,6 +838,30 @@ export const OFFICES = [
     color: "#dc2626", // Red - similar to main Rax logo
   },
 ] as const;
+
+// Get the current site's office info
+export const SITE_OFFICE = OFFICES.find(o => o.id === SITE_COMPANY_ID) || OFFICES[0];
+
+// Get offices sorted with current site first, then HQ (if not current), then others
+export const SORTED_OFFICES = (() => {
+  const currentSite = OFFICES.find(o => o.id === SITE_COMPANY_ID);
+  const hq = OFFICES.find(o => o.id === "headquarters");
+  const others = OFFICES.filter(o => o.id !== SITE_COMPANY_ID && o.id !== "headquarters");
+
+  const sorted = [];
+  if (currentSite) sorted.push(currentSite);
+  if (hq && hq.id !== SITE_COMPANY_ID) sorted.push(hq);
+  sorted.push(...others);
+
+  return sorted;
+})();
+
+// Contact info for the footer (uses current site's office info)
+export const SITE_CONTACT = {
+  address: SITE_OFFICE.address,
+  phone: SITE_OFFICE.phone || "",
+  email: SITE_OFFICE.email,
+};
 
 export const SEO = {
   home: {
