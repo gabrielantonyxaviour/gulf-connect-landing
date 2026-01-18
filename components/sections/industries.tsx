@@ -54,7 +54,7 @@ function IndustryCard({ industry, index }: { industry: Industry; index: number }
           src={industry.image}
           alt={name}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          className="object-cover transition-transform duration-500 group-hover:scale-110 brightness-200"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/70 group-hover:via-black/30 transition-all duration-300" />

@@ -73,7 +73,7 @@ export function ProductCard({
               <span className="text-xs font-medium text-accent uppercase tracking-wider">
                 {category}
               </span>
-              <h3 className="text-base sm:text-lg font-bold mt-1 text-foreground">
+              <h3 className="text-base sm:text-lg font-bold mt-1 text-foreground group-hover:!text-foreground">
                 {name}
               </h3>
               {model && (
@@ -183,7 +183,7 @@ export function ProductCardLarge({
                   <span className="text-xs font-medium text-accent uppercase tracking-wider">
                     {category}
                   </span>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground group-hover:!text-foreground">
                     {name}
                   </h3>
                   {model && (

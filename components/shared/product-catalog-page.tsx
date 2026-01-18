@@ -175,7 +175,7 @@ function ProductCard({
           {hasLongDescription && (
             <div className="hidden sm:group-hover:flex flex-col transition-all duration-500 ease-out flex-1 min-h-0 overflow-hidden mt-3">
               <div className="border-t border-border/50 pt-3 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-white/10 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/40 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/60">
-                <p className="text-sm text-muted-foreground group-hover:text-neutral-400 leading-relaxed pr-2">
+                <p className="text-sm text-muted-foreground group-hover:text-neutral-600 leading-relaxed pr-2">
                   {productLongDescription}
                 </p>
               </div>

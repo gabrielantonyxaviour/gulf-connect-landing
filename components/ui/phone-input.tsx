@@ -193,7 +193,7 @@ function PhoneInput({
         className={cn(
           "flex-1 h-9 rounded-r-md border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-colors placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
           "focus:outline-none focus:border-ring focus:ring-ring/50 focus:ring-[3px]",
-          "[&:-webkit-autofill]:bg-neutral-900 [&:-webkit-autofill]:[-webkit-box-shadow:0_0_0_1000px_rgb(23_23_23)_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:white]",
+          "[&:-webkit-autofill]:bg-white [&:-webkit-autofill]:[-webkit-box-shadow:0_0_0_1000px_rgb(255_255_255)_inset] [&:-webkit-autofill]:[-webkit-text-fill-color:rgb(23_23_23)]",
           className
         )}
         {...props}
