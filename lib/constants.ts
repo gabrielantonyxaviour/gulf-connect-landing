@@ -844,13 +844,14 @@ export const SITE_OFFICE = OFFICES.find(o => o.id === SITE_COMPANY_ID) || OFFICE
 
 // Get offices sorted with current site first, then HQ (if not current), then others
 export const SORTED_OFFICES = (() => {
-  const currentSite = OFFICES.find(o => o.id === SITE_COMPANY_ID);
+  const siteId: string = SITE_COMPANY_ID;
+  const currentSite = OFFICES.find(o => o.id === siteId);
   const hq = OFFICES.find(o => o.id === "headquarters");
-  const others = OFFICES.filter(o => o.id !== SITE_COMPANY_ID && o.id !== "headquarters");
+  const others = OFFICES.filter(o => o.id !== siteId && o.id !== "headquarters");
 
   const sorted = [];
   if (currentSite) sorted.push(currentSite);
-  if (hq && hq.id !== SITE_COMPANY_ID) sorted.push(hq);
+  if (hq && hq.id !== siteId) sorted.push(hq);
   sorted.push(...others);
 
   return sorted;
@@ -863,6 +864,7 @@ export const SITE_CONTACT = {
   email: SITE_OFFICE.email,
 };
 
+// Base SEO (for reference, but use SITE_SEO below)
 export const SEO = {
   home: {
     title: "Rax Tech International | IoT, Automation & e-Surveillance Solutions",
@@ -899,6 +901,69 @@ export const SEO = {
     description:
       "Explore photos from Rax Tech International's company events, celebrations, and team activities.",
   },
+} as const;
+
+// Site-specific SEO configuration
+const SEO_CONFIG = {
+  headquarters: {
+    companyName: "Rax Tech International",
+    shortName: "Rax Tech",
+    domain: "raxtech.com",
+    location: "Chennai, India",
+    keywords: ["IoT", "Automation", "e-Surveillance", "Blockchain", "Web3", "Embedded Systems", "OEM", "ODM", "Chennai", "India"],
+  },
+  europe: {
+    companyName: "RaxTech Europe",
+    shortName: "RaxTech Europe",
+    domain: "raxtecheurope.com",
+    location: "Warsaw, Poland",
+    keywords: ["IoT", "Automation", "e-Surveillance", "Blockchain", "Web3", "Embedded Systems", "OEM", "ODM", "Warsaw", "Poland", "Europe"],
+  },
+  oman: {
+    companyName: "Gulf Connect Solutions",
+    shortName: "Gulf Connect",
+    domain: "gulfconnect.io",
+    location: "Muscat, Oman",
+    keywords: ["IoT", "Automation", "e-Surveillance", "Blockchain", "Web3", "Embedded Systems", "OEM", "ODM", "Muscat", "Oman", "Gulf", "Middle East"],
+  },
+} as const;
+
+// Get site-specific SEO config
+const siteConfig = SEO_CONFIG[SITE_COMPANY_ID];
+
+// Site-specific SEO (USE THIS)
+export const SITE_SEO = {
+  home: {
+    title: `${siteConfig.companyName} | IoT, Automation & e-Surveillance Solutions`,
+    description: `${siteConfig.companyName} provides IoT, automation, e-surveillance, and blockchain solutions for enterprises. Based in ${siteConfig.location}.`,
+  },
+  about: {
+    title: `About ${siteConfig.shortName} | Technology Excellence`,
+    description: `Learn about ${siteConfig.companyName}'s vision, mission, and commitment to delivering innovative tech solutions across industries.`,
+  },
+  services: {
+    title: `Services | ${siteConfig.shortName} - Embedded Design, Software Development`,
+    description: `${siteConfig.companyName} offers comprehensive tech services including embedded design, software development, OEM/ODM manufacturing, and staffing solutions.`,
+  },
+  products: {
+    title: `Products | ${siteConfig.shortName} - Surveillance, IoT, Automation`,
+    description: `Explore ${siteConfig.companyName}'s product catalog featuring surveillance panels, IoT devices, and automation systems for enterprise security.`,
+  },
+  contact: {
+    title: `Contact ${siteConfig.shortName} | Get in Touch`,
+    description: `Contact ${siteConfig.companyName} for IoT, automation, and surveillance solutions. Based in ${siteConfig.location}.`,
+  },
+  careers: {
+    title: `Careers | Join ${siteConfig.companyName}`,
+    description: `Explore career opportunities at ${siteConfig.shortName}. Join our team of innovators building IoT, automation, and surveillance solutions.`,
+  },
+  gallery: {
+    title: `Gallery | ${siteConfig.companyName} Events & Celebrations`,
+    description: `Explore photos from ${siteConfig.companyName}'s company events, celebrations, and team activities.`,
+  },
+  keywords: siteConfig.keywords,
+  domain: siteConfig.domain,
+  companyName: siteConfig.companyName,
 } as const;
 
 // Careers-related constants
