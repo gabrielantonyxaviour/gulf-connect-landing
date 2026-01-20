@@ -83,7 +83,7 @@ function ServiceCard({
             "flex-grow p-8",
             !isEven && "lg:order-1"
           )}>
-            <h2 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
+            <h2 className="text-2xl font-bold mb-2 group-hover:text-green-500 transition-colors">
               {service.title}
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -271,7 +271,7 @@ export default function ServicesPage() {
                   <div className="text-5xl font-bold text-accent/20 mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 hover:text-red-500 transition-colors">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">
                     {item.description}
                   </p>
