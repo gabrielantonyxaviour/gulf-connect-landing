@@ -14,7 +14,7 @@ export const COMPANY = {
     "Rax Tech provides intuitive tech-driven services and solutions to enterprises. A solution-centric organization enabling digital transformation for over 25 years.",
   established: 2000,
   yearsInBusiness: 25,
-  certification: "ISO 9001:2015 (TUV South Asia)",
+  certification: "ISO 9001:2015 (Bureau Veritas)",
   facilitySize: "10,000+ sq. ft.",
 } as const;
 
