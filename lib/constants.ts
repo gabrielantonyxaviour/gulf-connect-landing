@@ -93,20 +93,20 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    id: "e-surveillance",
-    title: "E-Surveillance",
-    shortTitle: "E-Surveillance",
-    route: "/products/e-surveillance",
-    headline: "Secure. Monitor. Protect.",
+    id: "automation",
+    title: "Automation",
+    shortTitle: "Automation",
+    route: "/products/automation",
+    headline: "Nullify Your Workability Errors",
     description:
-      "Comprehensive security automation and surveillance solutions with alarm panels, video analytics, and access control.",
-    icon: "Shield",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/e-surveillance.png",
+      "Industrial automation panels and control systems for manufacturing and process industries.",
+    icon: "Cog",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/automation.png",
     offerings: [
-      "Alarm automation panels",
-      "Video analytics",
-      "Remote monitoring systems",
-      "Access control solutions",
+      "PLC Panels",
+      "VFD Panels",
+      "Protection panels",
+      "Annunciator systems",
     ],
   },
   {
@@ -127,20 +127,20 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    id: "marine-technology",
-    title: "Marine Technology",
-    shortTitle: "Marine",
-    route: "/products/marine-technology",
-    headline: "Navigate with Confidence",
+    id: "e-surveillance",
+    title: "E-Surveillance",
+    shortTitle: "E-Surveillance",
+    route: "/products/e-surveillance",
+    headline: "Secure. Monitor. Protect.",
     description:
-      "Deep Sea Master boat management systems for maritime navigation and control.",
-    icon: "Anchor",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/marine-technology.png",
+      "Comprehensive security automation and surveillance solutions with alarm panels, video analytics, and access control.",
+    icon: "Shield",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/e-surveillance.png",
     offerings: [
-      "Bridge control systems",
-      "Navigation management",
-      "Satellite communication",
-      "Maritime data solutions",
+      "Alarm automation panels",
+      "Video analytics",
+      "Remote monitoring systems",
+      "Access control solutions",
     ],
   },
   {
@@ -161,20 +161,20 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    id: "automation",
-    title: "Automation",
-    shortTitle: "Automation",
-    route: "/products/automation",
-    headline: "Nullify Your Workability Errors",
+    id: "marine-technology",
+    title: "Marine Technology",
+    shortTitle: "Marine",
+    route: "/products/marine-technology",
+    headline: "Navigate with Confidence",
     description:
-      "Industrial automation panels and control systems for manufacturing and process industries.",
-    icon: "Cog",
-    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/automation.png",
+      "Deep Sea Master boat management systems for maritime navigation and control.",
+    icon: "Anchor",
+    image: "https://vziyntciabkelnaujliq.supabase.co/storage/v1/object/public/rax_landing_products/categories/gulf-connect/marine-technology.png",
     offerings: [
-      "PLC Panels",
-      "VFD Panels",
-      "Protection panels",
-      "Annunciator systems",
+      "Bridge control systems",
+      "Navigation management",
+      "Satellite communication",
+      "Maritime data solutions",
     ],
   },
 ] as const;
@@ -184,13 +184,13 @@ export const BUSINESS_DOMAINS = PRODUCT_CATEGORIES;
 
 export const SERVICES = [
   {
-    id: "embedded-design",
-    title: "Embedded Design",
+    id: "embedded-oem-odm",
+    title: "Embedded/OEM/ODM",
     route: "/services/embedded-design",
     icon: "CircuitBoard",
     image: "/services/embedded-design.png",
     description:
-      "End-to-end embedded systems design from concept to production.",
+      "End-to-end embedded systems design, OEM & ODM solutions from concept to production.",
     capabilities: [
       "Hardware Design & PCB Layout",
       "Schematic Design",
@@ -198,6 +198,10 @@ export const SERVICES = [
       "FPGA Design Services",
       "System-level Design",
       "Testing & Validation",
+      "Original Equipment Manufacturing",
+      "Original Design Manufacturing",
+      "Product Digitization",
+      "Electronic Controller Development",
       "Obsolescence Management",
     ],
   },
@@ -251,36 +255,6 @@ export const SERVICES = [
       "Decentralized Application Development",
       "Tokenization Solutions",
       "Blockchain Security Audits",
-    ],
-  },
-  {
-    id: "oem-odm",
-    title: "OEM & ODM",
-    route: "/services/oem-odm",
-    icon: "Factory",
-    image: "/services/oem-odm.png",
-    description:
-      "Original equipment and design manufacturing with 100+ successful projects.",
-    capabilities: [
-      "Original Equipment Manufacturing",
-      "Original Design Manufacturing",
-      "Product Digitization",
-      "Electronic Controller Development",
-      "Data Connectivity Solutions",
-      "End-to-end Product Development",
-    ],
-  },
-  {
-    id: "staffing",
-    title: "Staffing Solutions",
-    route: "/services/staffing",
-    icon: "Users",
-    image: "/services/staffing.png",
-    description: "Technical talent acquisition and project-based resourcing.",
-    capabilities: [
-      "Technical talent acquisition",
-      "Contract staffing",
-      "Project-based resourcing",
     ],
   },
 ] as const;
@@ -856,6 +830,13 @@ export const SORTED_OFFICES = (() => {
 
   return sorted;
 })();
+
+// Mapping of office IDs to their external URLs for cross-site linking
+export const OFFICE_URLS = {
+  headquarters: "https://rax-tech.com",
+  europe: "https://raxtecheurope.com",
+  oman: "https://gulfconnect.io",
+} as const;
 
 // Contact info for the footer (uses current site's office info)
 export const SITE_CONTACT = {

@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/footer";
 import { ContactModalProvider } from "@/components/providers/contact-modal-provider";
 import { PostHogProvider } from "@/lib/posthog";
 import { PageViewTracker, ScrollDepthTracker } from "@/components/analytics";
+import { CookieConsent } from "@/components/cookie-consent";
 
 interface AppWrapperProps {
   children: React.ReactNode;
@@ -41,6 +42,7 @@ export function AppWrapper({ children }: AppWrapperProps) {
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <CookieConsent />
         </motion.div>
       </ContactModalProvider>
     </PostHogProvider>

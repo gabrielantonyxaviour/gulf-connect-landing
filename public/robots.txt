@@ -1,0 +1,11 @@
+# Gulf Connect Solutions - robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /email-preview/
+
+# Sitemap location
+Sitemap: https://gulfconnect.io/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

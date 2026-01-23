@@ -232,9 +232,6 @@ export function Footer() {
           <p className="text-xs sm:text-sm text-muted-foreground text-center md:ltr:text-left md:rtl:text-right">
             &copy; {currentYear} {tCompany("name")}. {t("copyright")}
           </p>
-          <div className="flex items-center ltr:space-x-2 rtl:space-x-reverse rtl:space-x-2 text-xs sm:text-sm text-muted-foreground">
-            <span>ISO 9001:2015 (TUV South Asia)</span>
-          </div>
         </div>
       </div>
     </footer>

@@ -75,7 +75,7 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
           fill
           src={service.image}
           alt={title}
-          className={`object-cover ${service.id === "staffing" ? "brightness-125" : "brightness-[1.75]"}`}
+          className={`object-cover brightness-[1.75]`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-green-500/50 via-green-400/15 to-transparent" />
       </div>
@@ -153,7 +153,7 @@ function DesktopServiceCardContent({ service, isActive, hasActive }: {
             fill
             src={service.image}
             alt={title}
-            className={`object-cover ${service.id === "staffing" ? "brightness-125" : "brightness-[1.75]"}`}
+            className={`object-cover brightness-[1.75]`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-green-500/50 via-green-400/10 to-transparent" />
 
@@ -182,7 +182,7 @@ function DesktopServiceCardContent({ service, isActive, hasActive }: {
               fill
               src={service.image}
               alt={title}
-              className={`object-cover ${service.id === "staffing" ? "brightness-125" : "brightness-[1.75]"}`}
+              className={`object-cover brightness-[1.75]`}
             />
           </div>
 

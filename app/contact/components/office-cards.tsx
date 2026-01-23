@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Mail, MapPin, Phone, Clock, Building2 } from "lucide-react";
-import { SORTED_OFFICES } from "@/lib/constants";
+import { SORTED_OFFICES, SITE_COMPANY_ID, OFFICE_URLS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface OfficeCardsProps {
@@ -45,16 +45,30 @@ export function OfficeCards({ selectedOfficeId, onOfficeSelect }: OfficeCardsPro
     return () => clearInterval(interval);
   }, []);
 
+  const handleOfficeCardClick = (officeId: string) => {
+    // If clicking on a different site, open it in a new tab
+    if (officeId !== SITE_COMPANY_ID) {
+      const url = OFFICE_URLS[officeId as keyof typeof OFFICE_URLS];
+      if (url) {
+        window.open(url, "_blank");
+      }
+    } else {
+      // If clicking on current site's office, select it on the globe
+      onOfficeSelect(officeId);
+    }
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
       {SORTED_OFFICES.map((office) => {
         const isSelected = selectedOfficeId === office.id;
         const isHeadquarters = office.type === "Headquarters";
+        const isCurrentSite = office.id === SITE_COMPANY_ID;
 
         return (
           <div
             key={office.id}
-            onClick={() => onOfficeSelect(office.id)}
+            onClick={() => handleOfficeCardClick(office.id)}
             className={cn(
               "group relative cursor-pointer rounded-2xl border bg-card p-4 sm:p-5 md:p-6 transition-all duration-300 hover:shadow-xl",
               isSelected
@@ -113,6 +127,7 @@ export function OfficeCards({ selectedOfficeId, onOfficeSelect }: OfficeCardsPro
               <div className="flex items-start gap-2 sm:gap-3">
                 <Building2 className="h-4 w-4 text-muted-foreground flex-shrink-0 mt-0.5" />
                 <div className="text-muted-foreground">
+                  <p className="font-bold text-foreground mb-1">{office.name}</p>
                   {office.address.line1 && <p>{office.address.line1}</p>}
                   {office.address.line2 && <p>{office.address.line2}</p>}
                   {office.address.line3 && <p>{office.address.line3}</p>}
