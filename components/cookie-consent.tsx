@@ -84,7 +84,7 @@ export function CookieConsent() {
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <Cookie className="h-10 w-10 text-red-600" />
+                      <Cookie className="h-10 w-10 text-green-600" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold text-neutral-900 mb-2">
@@ -95,7 +95,7 @@ export function CookieConsent() {
                         By clicking "Accept All", you consent to our use of cookies.{" "}
                         <button
                           onClick={() => setShowSettings(true)}
-                          className="text-red-600 hover:text-red-700 underline font-medium"
+                          className="text-green-600 hover:text-green-700 underline font-medium"
                         >
                           Customize preferences
                         </button>
@@ -112,7 +112,7 @@ export function CookieConsent() {
                     </button>
                     <button
                       onClick={handleAcceptAll}
-                      className="px-6 py-2.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors shadow-sm"
+                      className="px-6 py-2.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-lg transition-colors shadow-sm"
                     >
                       Accept All
                     </button>
@@ -170,7 +170,7 @@ export function CookieConsent() {
                         onChange={(e) =>
                           setPreferences({ ...preferences, analytics: e.target.checked })
                         }
-                        className="mt-1 h-5 w-5 rounded border-neutral-300 text-red-600 focus:ring-red-500"
+                        className="mt-1 h-5 w-5 rounded border-neutral-300 text-green-600 focus:ring-green-500"
                       />
                     </div>
 
@@ -190,7 +190,7 @@ export function CookieConsent() {
                         onChange={(e) =>
                           setPreferences({ ...preferences, marketing: e.target.checked })
                         }
-                        className="mt-1 h-5 w-5 rounded border-neutral-300 text-red-600 focus:ring-red-500"
+                        className="mt-1 h-5 w-5 rounded border-neutral-300 text-green-600 focus:ring-green-500"
                       />
                     </div>
                   </div>
@@ -204,7 +204,7 @@ export function CookieConsent() {
                     </button>
                     <button
                       onClick={handleSavePreferences}
-                      className="flex-1 px-6 py-2.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors shadow-sm"
+                      className="flex-1 px-6 py-2.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-lg transition-colors shadow-sm"
                     >
                       Save Preferences
                     </button>
