@@ -22,7 +22,7 @@ function TopRightActions() {
   };
 
   return (
-    <div className="fixed top-6 right-6 z-50">
+    <div className="fixed top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 z-50">
       <button
         onClick={handleLogout}
         className="p-2 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/20 transition-colors"
@@ -50,7 +50,7 @@ export function AdminLayoutClient({ children }: { children: React.ReactNode }) {
         <AdminSidebar />
         <div className="flex-1 flex flex-col min-w-0">
           <TopRightActions />
-          <main className="flex-1 p-6 pt-32">{children}</main>
+          <main className="flex-1 p-3 pt-16 sm:p-4 sm:pt-20 md:p-6 md:pt-24 lg:pt-12">{children}</main>
         </div>
       </div>
     </AdminGuard>
