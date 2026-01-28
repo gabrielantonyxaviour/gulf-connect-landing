@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { IntroScreen } from "@/components/intro-screen";
 import { Navbar } from "@/components/layout/navbar";
@@ -15,12 +16,24 @@ interface AppWrapperProps {
 }
 
 export function AppWrapper({ children }: AppWrapperProps) {
+  const pathname = usePathname();
+  const isAdminPage = pathname?.startsWith("/admin");
+
   // TEMPORARILY DISABLED - set to true to re-enable intro screen
   const showIntro = false;
   // const [showIntro, setShowIntro] = useState(true);
   // const handleIntroComplete = () => {
   //   setShowIntro(false);
   // };
+
+  // Admin pages have their own layout without main navbar/footer
+  if (isAdminPage) {
+    return (
+      <PostHogProvider>
+        {children}
+      </PostHogProvider>
+    );
+  }
 
   return (
     <PostHogProvider>
