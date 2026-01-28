@@ -390,6 +390,75 @@ export interface Database {
         };
         Relationships: [];
       };
+      rax_landing_gallery_events: {
+        Row: {
+          id: string;
+          company: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
+          title: string;
+          description: string | null;
+          event_date: string | null;
+          slug: string;
+          is_active: boolean;
+          sort_order: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          company: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
+          title: string;
+          description?: string | null;
+          event_date?: string | null;
+          slug: string;
+          is_active?: boolean;
+          sort_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          company?: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
+          title?: string;
+          description?: string | null;
+          event_date?: string | null;
+          slug?: string;
+          is_active?: boolean;
+          sort_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      rax_landing_gallery_images: {
+        Row: {
+          id: string;
+          event_id: string;
+          filename: string;
+          original_filename: string | null;
+          storage_path: string;
+          sort_order: number;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          event_id: string;
+          filename: string;
+          original_filename?: string | null;
+          storage_path: string;
+          sort_order?: number;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          event_id?: string;
+          filename?: string;
+          original_filename?: string | null;
+          storage_path?: string;
+          sort_order?: number;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: {
       [_ in never]: never;

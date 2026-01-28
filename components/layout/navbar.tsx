@@ -141,8 +141,6 @@ function NavItems() {
   const tNav = useTranslations("nav");
   const tProducts = useTranslations("products.categories");
   const tServices = useTranslations("servicesPage");
-  const tCareers = useTranslations("careers");
-  const tGallery = useTranslations("nav");
 
   // Build translated product items
   const productItems = PRODUCT_CATEGORIES.map((product) => {
@@ -180,22 +178,6 @@ function NavItems() {
       label: tNav("about"),
       key: "about",
       href: "/about",
-    },
-    {
-      label: tNav("more"),
-      key: "more",
-      items: [
-        {
-          label: tNav("careers"),
-          href: "/careers",
-          description: tCareers("heroSubtitle"),
-        },
-        {
-          label: tNav("gallery"),
-          href: "/gallery",
-          description: tNav("galleryDescription"),
-        },
-      ],
     },
   ];
 
@@ -324,7 +306,6 @@ function MobileNavContent({ onItemClick, pathname }: { onItemClick: () => void; 
   const tNav = useTranslations("nav");
   const tProducts = useTranslations("products.categories");
   const tServices = useTranslations("servicesPage");
-  const tCareers = useTranslations("careers");
 
   // Build translated product items
   const productItems = PRODUCT_CATEGORIES.map((product) => {
@@ -362,22 +343,6 @@ function MobileNavContent({ onItemClick, pathname }: { onItemClick: () => void; 
       label: tNav("about"),
       key: "about",
       href: "/about",
-    },
-    {
-      label: tNav("more"),
-      key: "more",
-      items: [
-        {
-          label: tNav("careers"),
-          href: "/careers",
-          description: tCareers("heroSubtitle"),
-        },
-        {
-          label: tNav("gallery"),
-          href: "/gallery",
-          description: tNav("galleryDescription"),
-        },
-      ],
     },
   ];
 

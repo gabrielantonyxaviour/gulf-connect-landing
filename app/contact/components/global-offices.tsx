@@ -72,6 +72,34 @@ export function GlobalOffices() {
           selectedOfficeId={selectedOfficeId}
           onOfficeSelect={setSelectedOfficeId}
         />
+
+        {/* Certifications Section */}
+        <div className="mt-8 sm:mt-10 md:mt-12">
+          <div className="text-center mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+              {t("certificationsTitle")}
+            </h3>
+            <p className="text-muted-foreground text-sm sm:text-base">
+              {t("certificationsSubtitle")}
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12">
+            <div className="flex items-center justify-center p-4 sm:p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <img
+                src="/images/bureau-clean.png"
+                alt="ISO 9001:2015 - Bureau Veritas"
+                className="h-16 sm:h-20 md:h-24 w-auto object-contain"
+              />
+            </div>
+            <div className="flex items-center justify-center p-4 sm:p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <img
+                src="/images/zed-clean.png"
+                alt="Zed Silver Certification"
+                className="h-16 sm:h-20 md:h-24 w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

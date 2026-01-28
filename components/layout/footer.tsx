@@ -199,22 +199,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/careers"
-                  className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
-                >
-                  {t("careers")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/gallery"
-                  className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
-                >
-                  {t("gallery")}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
                   className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
                 >
@@ -228,10 +212,31 @@ export function Footer() {
         <Separator className="my-6 sm:my-8 bg-border" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-xs sm:text-sm text-muted-foreground text-center md:ltr:text-left md:rtl:text-right">
             &copy; {currentYear} {tCompany("name")}. {t("copyright")}
           </p>
+
+          {/* Certifications */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <span className="text-xs text-muted-foreground hidden sm:inline">{t("certified")}:</span>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center justify-center p-1.5 sm:p-2 bg-white rounded-lg">
+                <img
+                  src="/images/bureau-clean.png"
+                  alt="ISO 9001:2015 - Bureau Veritas"
+                  className="h-8 sm:h-10 w-auto object-contain"
+                />
+              </div>
+              <div className="flex items-center justify-center p-1.5 sm:p-2 bg-white rounded-lg">
+                <img
+                  src="/images/zed-clean.png"
+                  alt="Zed Silver Certification"
+                  className="h-8 sm:h-10 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

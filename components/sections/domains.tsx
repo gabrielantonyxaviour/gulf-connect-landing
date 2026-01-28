@@ -9,7 +9,6 @@ import {
   SectionWrapper,
   SectionHeader,
 } from "@/components/shared/section-wrapper";
-import { EvervaultBackground } from "@/components/ui/evervault-background";
 import { BUSINESS_DOMAINS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -93,19 +92,19 @@ function BentoCard({
         </div>
 
         {/* Content */}
-        <EvervaultBackground containerClassName="-mt-6 sm:-mt-8 relative z-10 flex-1 flex flex-col" className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">
+        <div className="-mt-6 sm:-mt-8 relative z-10 flex-1 flex flex-col p-3 sm:p-4 md:p-6">
           {/* Title */}
-          <h3 className="text-sm sm:text-base md:text-xl font-semibold mb-1 sm:mb-2 group-hover:text-neutral-900 transition-colors">
+          <h3 className="text-sm sm:text-base md:text-xl font-semibold mb-1 sm:mb-2 group-hover:text-accent transition-colors">
             {title}
           </h3>
 
           {/* Headline */}
-          <p className="text-[10px] sm:text-xs md:text-sm text-accent group-hover:text-green-300 font-medium mb-2 sm:mb-3 line-clamp-1 transition-colors">
+          <p className="text-[10px] sm:text-xs md:text-sm text-accent font-medium mb-2 sm:mb-3 line-clamp-1 transition-colors">
             {headline}
           </p>
 
           {/* Description - hidden on mobile */}
-          <p className="hidden sm:block text-xs md:text-sm text-muted-foreground group-hover:text-neutral-600 mb-3 md:mb-4 line-clamp-2 transition-colors">
+          <p className="hidden sm:block text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 line-clamp-2 transition-colors">
             {description}
           </p>
 
@@ -114,9 +113,9 @@ function BentoCard({
             {offerings.map((offering) => (
               <li
                 key={offering}
-                className="text-xs text-muted-foreground group-hover:text-neutral-600 flex items-center transition-colors"
+                className="text-xs text-muted-foreground flex items-center transition-colors"
               >
-                <span className="w-1 h-1 rounded-full bg-accent group-hover:bg-green-400 ltr:mr-2 rtl:ml-2 flex-shrink-0 transition-colors" />
+                <span className="w-1 h-1 rounded-full bg-accent ltr:mr-2 rtl:ml-2 flex-shrink-0 transition-colors" />
                 {offering}
               </li>
             ))}
@@ -124,7 +123,7 @@ function BentoCard({
 
           {/* Link - pinned to bottom */}
           <ExploreLink />
-        </EvervaultBackground>
+        </div>
 
         {/* Bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

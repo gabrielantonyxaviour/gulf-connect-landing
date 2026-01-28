@@ -3,6 +3,7 @@ import { AboutHero } from "./components/about-hero";
 import { VisionMission } from "./components/vision-mission";
 import { Timeline } from "./components/timeline";
 import { Stats } from "./components/stats";
+import { Certifications } from "./components/certifications";
 import { SEO } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function AboutPage() {
       <AboutHero />
       <VisionMission />
       <Stats />
+      <Certifications />
       {showJourney && <Timeline />}
     </>
   );

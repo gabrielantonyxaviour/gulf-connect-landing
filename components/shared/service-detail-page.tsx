@@ -43,6 +43,7 @@ const iconMap: Record<string, LucideIcon> = {
 // Map service IDs to translation keys
 const serviceTranslationKeys: Record<string, string> = {
   "embedded-design": "embeddedDesign",
+  "embedded-oem-odm": "embeddedOemOdm",
   "software-development": "softwareDev",
   "ai": "ai",
   "blockchain": "blockchain",
@@ -53,6 +54,10 @@ const serviceTranslationKeys: Record<string, string> = {
 // Service-specific accent colors
 const serviceColors: Record<string, { gradient: string; glow: string }> = {
   "embedded-design": {
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    glow: "hsl(200 80% 50% / 0.15)",
+  },
+  "embedded-oem-odm": {
     gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
     glow: "hsl(200 80% 50% / 0.15)",
   },
@@ -495,9 +500,9 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
             priority
           />
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/60" />
-          {/* Bottom fade to background - smooth gradient */}
-          <div className="absolute inset-x-0 bottom-0 h-[50vh] bg-gradient-to-t from-background from-10% via-background/60 via-40% to-transparent" />
+          <div className="absolute inset-0 bg-black/40" />
+          {/* Bottom fade to background only */}
+          <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>
 
         {/* Spotlight Effect */}
@@ -512,10 +517,6 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
           height={50}
           className="[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] opacity-30 z-[1]"
         />
-
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background pointer-events-none opacity-50 z-[1]" />
 
         {/* Animated Glow Orb */}
         <motion.div

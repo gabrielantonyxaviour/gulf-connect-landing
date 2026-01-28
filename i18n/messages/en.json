@@ -119,6 +119,13 @@
     "badge": "About Us",
     "heroTitle": "Technology Excellence",
     "heroSubtitle": "Years of",
+    "certifications": {
+      "titlePrefix": "Our",
+      "titleHighlight": "Certifications",
+      "subtitle": "Committed to quality, excellence, and continuous improvement",
+      "iso": "ISO 9001:2015",
+      "zed": "ZED Silver Certified"
+    },
     "vision": {
       "title": "Our Vision",
       "content": "To become a Global Innovator by delivering highly reliable quality products, providing excellent after-sales support, and maintaining best employer values."
@@ -196,6 +203,8 @@
       "coverage": "Coverage",
       "headquarters": "Headquarters",
       "regionalOffice": "Regional Office",
+      "certificationsTitle": "Our Certifications",
+      "certificationsSubtitle": "Committed to quality and excellence",
       "names": {
         "headquarters": "Rax Tech International",
         "oman": "Gulf Connect Solutions LLC",
@@ -259,6 +268,7 @@
     "gallery": "Gallery",
     "contact": "Contact",
     "copyright": "All Rights Reserved.",
+    "certified": "Certified",
     "productLinks": {
       "iot": "IoT",
       "eSurveillance": "E-Surveillance",
@@ -409,6 +419,23 @@
         "5": "System-level Design",
         "6": "Testing & Validation",
         "7": "Obsolescence Management"
+      }
+    },
+    "embeddedOemOdm": {
+      "title": "Embedded/OEM/ODM",
+      "description": "End-to-end embedded systems design, OEM & ODM solutions from concept to production.",
+      "capabilities": {
+        "1": "Hardware Design & PCB Layout",
+        "2": "Schematic Design",
+        "3": "Prototyping & Production Support",
+        "4": "FPGA Design Services",
+        "5": "System-level Design",
+        "6": "Testing & Validation",
+        "7": "Original Equipment Manufacturing",
+        "8": "Original Design Manufacturing",
+        "9": "Product Digitization",
+        "10": "Electronic Controller Development",
+        "11": "Obsolescence Management"
       }
     },
     "softwareDev": {

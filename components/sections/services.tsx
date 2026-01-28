@@ -10,7 +10,6 @@ import {
   SectionWrapper,
   SectionHeader,
 } from "@/components/shared/section-wrapper";
-import { EvervaultBackground } from "@/components/ui/evervault-background";
 import { SERVICES } from "@/lib/constants";
 
 // Map service IDs to translation keys
@@ -75,9 +74,9 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
           fill
           src={service.image}
           alt={title}
-          className={`object-cover brightness-[1.75]`}
+          className="object-cover brightness-[1.75]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-green-500/50 via-green-400/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
       </div>
 
       {/* Content */}
@@ -153,9 +152,9 @@ function DesktopServiceCardContent({ service, isActive, hasActive }: {
             fill
             src={service.image}
             alt={title}
-            className={`object-cover brightness-[1.75]`}
+            className="object-cover brightness-[1.75]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-green-500/50 via-green-400/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
           <motion.div
             layout
@@ -186,7 +185,7 @@ function DesktopServiceCardContent({ service, isActive, hasActive }: {
             />
           </div>
 
-          <EvervaultBackground containerClassName="flex-1 overflow-y-auto" className="p-4 lg:p-6 h-full">
+          <div className="flex-1 overflow-y-auto p-4 lg:p-6 h-full">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -194,32 +193,32 @@ function DesktopServiceCardContent({ service, isActive, hasActive }: {
             >
               <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-3 lg:mb-4">
                 <div className="flex-1 lg:ltr:pr-4 lg:rtl:pl-4 mb-3 lg:mb-0">
-                  <h3 className="font-bold text-lg lg:text-xl xl:text-2xl text-foreground group-hover/expanded:text-neutral-900 transition-colors">
+                  <h3 className="font-bold text-lg lg:text-xl xl:text-2xl text-foreground transition-colors">
                     {title}
                   </h3>
-                  <p className="text-muted-foreground group-hover/expanded:text-neutral-600 mt-1 lg:mt-2 text-xs lg:text-sm transition-colors">
+                  <p className="text-muted-foreground mt-1 lg:mt-2 text-xs lg:text-sm transition-colors">
                     {description}
                   </p>
                 </div>
                 <DesktopLearnMoreLink href={service.route} />
               </div>
 
-              <div className="pt-3 lg:pt-4 border-t border-border group-hover/expanded:border-neutral-700 transition-colors">
+              <div className="pt-3 lg:pt-4 border-t border-border transition-colors">
                 <CapabilitiesHeading />
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-1.5 lg:gap-2">
                   {capabilities.map((capability) => (
                     <li
                       key={capability}
-                      className="text-xs lg:text-sm text-muted-foreground group-hover/expanded:text-neutral-600 flex items-start transition-colors"
+                      className="text-xs lg:text-sm text-muted-foreground flex items-start transition-colors"
                     >
-                      <span className="w-1 lg:w-1.5 h-1 lg:h-1.5 bg-accent group-hover/expanded:bg-green-400 rounded-full ltr:mr-2 rtl:ml-2 mt-1.5 flex-shrink-0 transition-colors" />
+                      <span className="w-1 lg:w-1.5 h-1 lg:h-1.5 bg-accent rounded-full ltr:mr-2 rtl:ml-2 mt-1.5 flex-shrink-0 transition-colors" />
                       {capability}
                     </li>
                   ))}
                 </ul>
               </div>
             </motion.div>
-          </EvervaultBackground>
+          </div>
         </motion.div>
       )}
     </>
