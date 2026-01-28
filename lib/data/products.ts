@@ -27,7 +27,7 @@ export const getProductCategories = unstable_cache(
     }
   },
   ['product-categories'],
-  { tags: [CACHE_TAGS.categories, CACHE_TAGS.products] }
+  { tags: [CACHE_TAGS.categories, CACHE_TAGS.products], revalidate: 60 }
 );
 
 /**
@@ -56,7 +56,7 @@ export async function getProductsByCategory(categoryId: string): Promise<Product
       }
     },
     [`products-category-${categoryId}`],
-    { tags: [CACHE_TAGS.products, CACHE_TAGS.productsByCategory(categoryId)] }
+    { tags: [CACHE_TAGS.products, CACHE_TAGS.productsByCategory(categoryId)], revalidate: 60 }
   )();
 }
 
@@ -110,7 +110,7 @@ export async function getCategoryBySlug(slug: string): Promise<ProductCategory |
       }
     },
     [`category-${slug}`],
-    { tags: [CACHE_TAGS.categories, CACHE_TAGS.category(slug)] }
+    { tags: [CACHE_TAGS.categories, CACHE_TAGS.category(slug)], revalidate: 60 }
   )();
 }
 
@@ -138,7 +138,7 @@ export const getAllProducts = unstable_cache(
     }
   },
   ['all-products'],
-  { tags: [CACHE_TAGS.products] }
+  { tags: [CACHE_TAGS.products], revalidate: 60 }
 );
 
 /**
@@ -166,5 +166,5 @@ export const getCustomerUsecases = unstable_cache(
     }
   },
   ['customer-usecases'],
-  { tags: [CACHE_TAGS.products] }
+  { tags: [CACHE_TAGS.products], revalidate: 60 }
 );
