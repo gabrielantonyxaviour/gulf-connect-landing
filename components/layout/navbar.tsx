@@ -182,11 +182,6 @@ function NavItems() {
       href: "/about",
     },
     {
-      label: tNav("contact"),
-      key: "contact",
-      href: "/contact",
-    },
-    {
       label: tNav("more"),
       key: "more",
       items: [
@@ -367,11 +362,6 @@ function MobileNavContent({ onItemClick, pathname }: { onItemClick: () => void; 
       label: tNav("about"),
       key: "about",
       href: "/about",
-    },
-    {
-      label: tNav("contact"),
-      key: "contact",
-      href: "/contact",
     },
     {
       label: tNav("more"),
