@@ -14,6 +14,7 @@ export const getActiveJobs = unstable_cache(
         .from('rax_landing_jobs')
         .select('*')
         .eq('is_active', true)
+        .eq('company', 'gulf-connect')
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -43,6 +44,7 @@ export async function getJobBySlug(slug: string): Promise<Job | null> {
           .select('*')
           .eq('slug', slug)
           .eq('is_active', true)
+          .eq('company', 'gulf-connect')
           .single();
 
         if (error) {
@@ -73,6 +75,7 @@ export async function getJobById(id: string): Promise<Job | null> {
           .select('*')
           .eq('id', id)
           .eq('is_active', true)
+          .eq('company', 'gulf-connect')
           .single();
 
         if (error) {
@@ -103,6 +106,7 @@ export async function getJobsByDepartment(department: string): Promise<Job[]> {
           .select('*')
           .eq('department', department)
           .eq('is_active', true)
+          .eq('company', 'gulf-connect')
           .order('created_at', { ascending: false });
 
         if (error) {

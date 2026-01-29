@@ -35,6 +35,7 @@ export async function POST(request: Request) {
         phone: phone || null,
         company: company || null,
         message,
+        source_company: 'gulf-connect',
       });
 
     if (dbError) {

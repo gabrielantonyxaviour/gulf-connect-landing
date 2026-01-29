@@ -117,6 +117,7 @@ export interface Database {
           sort_order: number;
           created_at: string;
           updated_at: string;
+          company: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
         };
         Insert: {
           id?: string;
@@ -135,6 +136,7 @@ export interface Database {
           sort_order?: number;
           created_at?: string;
           updated_at?: string;
+          company: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
         };
         Update: {
           id?: string;
@@ -153,6 +155,7 @@ export interface Database {
           sort_order?: number;
           created_at?: string;
           updated_at?: string;
+          company?: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
         };
         Relationships: [];
       };
@@ -225,6 +228,7 @@ export interface Database {
           is_read: boolean;
           notes: string | null;
           created_at: string;
+          source_company: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
         };
         Insert: {
           id?: string;
@@ -237,6 +241,7 @@ export interface Database {
           is_read?: boolean;
           notes?: string | null;
           created_at?: string;
+          source_company?: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
         };
         Update: {
           id?: string;
@@ -249,6 +254,7 @@ export interface Database {
           is_read?: boolean;
           notes?: string | null;
           created_at?: string;
+          source_company?: 'rax-chennai' | 'rax-europe' | 'gulf-connect';
         };
         Relationships: [];
       };
