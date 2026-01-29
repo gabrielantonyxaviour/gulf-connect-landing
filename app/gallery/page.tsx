@@ -14,7 +14,7 @@ export const revalidate = 60; // Revalidate every minute
 export default async function GalleryPage() {
   // Fetch gallery events from database for gulf-connect
   const events = await getGalleryEvents("gulf-connect");
-  const galleryEvents = transformGalleryEventsForDisplay(events);
+  const galleryEvents = await transformGalleryEventsForDisplay(events);
 
   return (
     <>

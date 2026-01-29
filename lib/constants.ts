@@ -714,8 +714,19 @@ export const NAV_ITEMS = [
     href: "/about",
   },
   {
-    label: "Contact",
-    href: "/contact",
+    label: "More",
+    items: [
+      {
+        label: "Careers",
+        href: "/careers",
+        description: "Join our team of innovators and build the future of technology.",
+      },
+      {
+        label: "Gallery",
+        href: "/gallery",
+        description: "Explore photos from our company events and celebrations.",
+      },
+    ],
   },
 ] as const;
 
@@ -828,45 +839,6 @@ export const SITE_CONTACT = {
   email: SITE_OFFICE.email,
 };
 
-// Base SEO (for reference, but use SITE_SEO below)
-export const SEO = {
-  home: {
-    title: "Rax Tech International | IoT, Automation & e-Surveillance Solutions",
-    description:
-      "25+ years of tech innovation. IoT, automation, e-surveillance, and blockchain solutions for enterprises. ISO 9001:2015 certified.",
-  },
-  about: {
-    title: "About Rax Tech | 25+ Years of Technology Excellence",
-    description:
-      "Learn about Rax Tech International's vision, mission, and 25+ years of delivering innovative tech solutions across 17+ industries.",
-  },
-  services: {
-    title: "Services | Embedded Design, Software Development, OEM/ODM",
-    description:
-      "Comprehensive tech services including embedded design, software development, OEM/ODM manufacturing, and staffing solutions.",
-  },
-  products: {
-    title: "Products | Surveillance Panels, IoT Devices, Automation Systems",
-    description:
-      "Explore Rax Tech's product catalog featuring surveillance panels, IoT devices, and automation systems for enterprise security.",
-  },
-  contact: {
-    title: "Contact Rax Tech | Get in Touch",
-    description:
-      "Contact Rax Tech International for IoT, automation, and surveillance solutions. Based in Chennai, India.",
-  },
-  careers: {
-    title: "Careers | Join Rax Tech International",
-    description:
-      "Explore career opportunities at Rax Tech. Join our team of innovators building IoT, automation, and surveillance solutions.",
-  },
-  gallery: {
-    title: "Gallery | Rax Tech International Events & Celebrations",
-    description:
-      "Explore photos from Rax Tech International's company events, celebrations, and team activities.",
-  },
-} as const;
-
 // Site-specific SEO configuration
 const SEO_CONFIG = {
   headquarters: {
@@ -928,6 +900,17 @@ export const SITE_SEO = {
   keywords: siteConfig.keywords,
   domain: siteConfig.domain,
   companyName: siteConfig.companyName,
+} as const;
+
+// Base SEO (delegates to SITE_SEO)
+export const SEO = {
+  home: SITE_SEO.home,
+  about: SITE_SEO.about,
+  services: SITE_SEO.services,
+  products: SITE_SEO.products,
+  contact: SITE_SEO.contact,
+  careers: SITE_SEO.careers,
+  gallery: SITE_SEO.gallery,
 } as const;
 
 // Careers-related constants

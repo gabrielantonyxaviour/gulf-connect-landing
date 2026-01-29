@@ -179,6 +179,22 @@ function NavItems() {
       key: "about",
       href: "/about",
     },
+    {
+      label: tNav("more"),
+      key: "more",
+      items: [
+        {
+          label: tNav("careers"),
+          href: "/careers",
+          description: tNav("careersDescription"),
+        },
+        {
+          label: tNav("gallery"),
+          href: "/gallery",
+          description: tNav("galleryDescription"),
+        },
+      ],
+    },
   ];
 
   return (
@@ -343,6 +359,22 @@ function MobileNavContent({ onItemClick, pathname }: { onItemClick: () => void; 
       label: tNav("about"),
       key: "about",
       href: "/about",
+    },
+    {
+      label: tNav("more"),
+      key: "more",
+      items: [
+        {
+          label: tNav("careers"),
+          href: "/careers",
+          description: tNav("careersDescription"),
+        },
+        {
+          label: tNav("gallery"),
+          href: "/gallery",
+          description: tNav("galleryDescription"),
+        },
+      ],
     },
   ];
 

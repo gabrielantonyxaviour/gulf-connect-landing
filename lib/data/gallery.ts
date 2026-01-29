@@ -39,6 +39,24 @@ export function getGalleryImagePublicUrl(storagePath: string): string {
 }
 
 /**
+ * Get a signed URL for a gallery image (works even if bucket is not public)
+ */
+export async function getGalleryImageSignedUrl(storagePath: string): Promise<string> {
+  const supabase = createServerClient();
+  const { data, error } = await supabase.storage
+    .from("rax_landing_gallery")
+    .createSignedUrl(storagePath, 3600); // 1 hour expiry
+
+  if (error || !data?.signedUrl) {
+    console.error("Error creating signed URL:", error);
+    // Fallback to public URL
+    return getGalleryImagePublicUrl(storagePath);
+  }
+
+  return data.signedUrl;
+}
+
+/**
  * Fetch all active gallery events for a company with their images
  */
 export async function getGalleryEvents(
@@ -84,21 +102,26 @@ export async function getGalleryEvents(
 
 /**
  * Transform gallery events to the format expected by GalleryGrid component
+ * Uses signed URLs for images to avoid 404 issues with non-public buckets
  */
-export function transformGalleryEventsForDisplay(
+export async function transformGalleryEventsForDisplay(
   events: GalleryEventWithImages[]
-): Array<{
+): Promise<Array<{
   id: string;
   title: string;
   description: string;
   date: string;
   images: string[];
-}> {
-  return events.map((event) => ({
-    id: event.id,
-    title: event.title,
-    description: event.description || "",
-    date: event.event_date || "",
-    images: event.images.map((img) => getGalleryImagePublicUrl(img.storage_path)),
-  }));
+}>> {
+  return Promise.all(
+    events.map(async (event) => ({
+      id: event.id,
+      title: event.title,
+      description: event.description || "",
+      date: event.event_date || "",
+      images: await Promise.all(
+        event.images.map((img) => getGalleryImageSignedUrl(img.storage_path))
+      ),
+    }))
+  );
 }
