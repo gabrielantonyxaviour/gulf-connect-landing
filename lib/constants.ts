@@ -6,12 +6,12 @@
 export const SITE_COMPANY_ID = "oman" as const;
 
 export const COMPANY = {
-  name: "Rax Tech International",
-  shortName: "Rax Tech",
-  domain: "raxtech.com",
+  name: "Gulf Connect Solutions",
+  shortName: "Gulf Connect",
+  domain: "gulfconnect.io",
   tagline: "IoT | Automation | e-Surveillance | Blockchain & Web3 | Services",
   description:
-    "Rax Tech provides intuitive tech-driven services and solutions to enterprises. A solution-centric organization enabling digital transformation for over 25 years.",
+    "Gulf Connect Solutions provides intuitive tech-driven services and solutions to enterprises. A solution-centric organization enabling digital transformation for over 25 years.",
   established: 2000,
   yearsInBusiness: 25,
   certification: "ISO 9001:2015 (Bureau Veritas)",
